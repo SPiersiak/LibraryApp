@@ -19,6 +19,6 @@ namespace LibraryApp.API.Models
         public DateTime BirthDate { get; set; }
         public string Country { get; set; }
 
-        public ICollection<Book> Books { get; set; }
+        public virtual ICollection<Book> Books { get; set; }
     }
 }

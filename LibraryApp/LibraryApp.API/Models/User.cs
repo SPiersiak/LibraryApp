@@ -24,5 +24,8 @@ namespace LibraryApp.API.Models
         [Required]
         public string Password { get; set; }
         public bool IsEmployee { get; set; }
+
+        public virtual ICollection<Reservation> Reservations { get; set; }
+        public virtual ICollection<Borrowed> Borroweds { get; set; }
     }
 }

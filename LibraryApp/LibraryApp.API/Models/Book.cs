@@ -19,6 +19,7 @@ namespace LibraryApp.API.Models
         [Required]
         public string BookLanguage { get; set; }
         public byte[] Image { get; set; }
+        public string ISBN { get; set; }
 
         [ForeignKey("Author")]
         public long AuthorId { get; set; }
@@ -31,6 +32,8 @@ namespace LibraryApp.API.Models
         [ForeignKey("Category")]
         public long CategoryId { get; set; }
         public Category Category { get; set; }
+
+        public virtual ICollection<CopiesOfTheBook> CopiesOfTheBooks{ get; set; }
 
     }
 }

@@ -16,7 +16,7 @@ namespace LibraryApp.API.Models
         [MaxLength(500)]
         public string CategoryDescription { get; set; }
 
-        public ICollection<Book> Books { get; set; }
+        public virtual ICollection<Book> Books { get; set; }
 
     }
 }

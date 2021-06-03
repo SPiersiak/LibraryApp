@@ -12,7 +12,9 @@ namespace LibraryApp.API.Models
         public long PublisherId { get; set; }
         [Required]
         public string PublisherName { get; set; }
+        [MaxLength(500)]
+        public string PublisherDescription { get; set; }
 
-        public ICollection<Book> Books { get; set; }
+        public virtual ICollection<Book> Books { get; set; }
     }
 }
