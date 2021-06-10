@@ -1,4 +1,5 @@
 using LibraryApp.API.Data;
+using LibraryApp.API.Repositories.LoginRegister;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -34,7 +35,10 @@ namespace LibraryApp.API
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "LibraryApp.API", Version = "v1" });
+                c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
             });
+
+            services.AddScoped<ILoginRegisterRepository, LoginRegisterRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
