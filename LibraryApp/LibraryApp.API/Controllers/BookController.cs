@@ -1,4 +1,5 @@
-﻿using LibraryApp.API.Repositories.Library;
+﻿using LibraryApp.API.Models;
+using LibraryApp.API.Repositories.Library;
 using LibraryApp.API.Repositories.Library.DTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,7 +16,7 @@ namespace LibraryApp.API.Controllers
     {
         private readonly IBookRepository _bookRepository;
 
-        public BookController(BookRepository bookRepository)
+        public BookController(IBookRepository bookRepository)
         {
             _bookRepository = bookRepository;
         }
@@ -25,24 +26,35 @@ namespace LibraryApp.API.Controllers
         {
             try
             {
-                if(String.IsNullOrEmpty(book.BookName) || String.IsNullOrEmpty(book.BookLanguage) || book.AuthorId != 0 || book.PublisherId != 0 || book.CategoryId != 0)
+                if (String.IsNullOrEmpty(book.BookName) || String.IsNullOrEmpty(book.BookLanguage) || book.AuthorId == 0 || book.PublisherId == 0 || book.CategoryId == 0)
                 {
                     return BadRequest();
                 }
 
                 var addBookResult = await _bookRepository.AddBook(book);
 
-                if(addBookResult == false)
+                if (addBookResult == false)
                 {
                     return BadRequest();
                 }
 
                 return Ok();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return BadRequest(ex);
             }
+        }
+        [HttpGet]
+        public ActionResult<IEnumerable<Book>> GetBooks()
+        {
+            return _bookRepository.GetAllBooks().ToList();
+        }
+
+        [HttpGet("{name}")]
+        public ActionResult<IEnumerable<Book>> FindBookByName(string name)
+        {
+            return _bookRepository.FindBook(name).ToList();
         }
     }
 }

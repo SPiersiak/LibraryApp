@@ -1,6 +1,7 @@
 using LibraryApp.API.Data;
 using LibraryApp.API.Repositories.Library;
 using LibraryApp.API.Repositories.LoginRegister;
+using LibraryApp.API.Repositories.UserRepo;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -44,6 +45,8 @@ namespace LibraryApp.API
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IAuthorRepository, AuthorRepository>();
             services.AddScoped<IBookRepository, BookRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IReservationRepository, ReservationRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
