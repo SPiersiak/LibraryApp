@@ -44,5 +44,17 @@ namespace LibraryApp.API.Repositories.Library
             return true;
         }
 
+        public IEnumerable<Book> FindBook(string searched)
+        {
+            IEnumerable<Book> books = _libraryDbContext.Books.Where(x => x.BookName.Contains(searched)).ToList();
+
+            return books;
+        }
+
+        public IEnumerable<Book> GetAllBooks()
+        {
+            IEnumerable<Book> books = _libraryDbContext.Books.ToList();
+            return books;
+        }
     }
 }

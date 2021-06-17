@@ -7,6 +7,7 @@ namespace LibraryApp.API.Repositories.Library.DTO
 {
     public class BookDto
     {
+        public long BookId { get; set; }
         public string BookName { get; set; }
         public DateTime ReleaseDate { get; set; }
         public string Description { get; set; }

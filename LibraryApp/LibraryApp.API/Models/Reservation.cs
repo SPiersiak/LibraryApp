@@ -11,8 +11,9 @@ namespace LibraryApp.API.Models
     {
         [Key]
         public long ReservationId { get; set; }
-        public TimeSpan ReservationStart { get; set; }
-        public TimeSpan ReservationEnd { get; set; }
+        public DateTime ReservationStart { get; set; }
+        public DateTime ReservationEnd { get; set; }
+        public bool IsActive { get; set; }
 
         [ForeignKey("CopiesOfTheBook")]
         public long CopiesId { get; set; }

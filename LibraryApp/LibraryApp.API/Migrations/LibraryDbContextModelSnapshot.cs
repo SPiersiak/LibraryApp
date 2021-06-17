@@ -197,11 +197,14 @@ namespace LibraryApp.API.Migrations
                     b.Property<long>("CopiesId")
                         .HasColumnType("bigint");
 
-                    b.Property<TimeSpan>("ReservationEnd")
-                        .HasColumnType("time");
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
 
-                    b.Property<TimeSpan>("ReservationStart")
-                        .HasColumnType("time");
+                    b.Property<DateTime>("ReservationEnd")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("ReservationStart")
+                        .HasColumnType("datetime2");
 
                     b.Property<long>("UserId")
                         .HasColumnType("bigint");
