@@ -56,5 +56,11 @@ namespace LibraryApp.API.Repositories.Library
             IEnumerable<Book> books = _libraryDbContext.Books.ToList();
             return books;
         }
+
+        public Book GetBookById(long bokkId)
+        {
+            var result = _libraryDbContext.Books.Single(x => x.BookId == bokkId);
+            return result;
+        }
     }
 }

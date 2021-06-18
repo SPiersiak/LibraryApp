@@ -12,5 +12,6 @@ namespace LibraryApp.API.Repositories.Library
         Task<bool> AddBook(BookDto item);
         IEnumerable<Book> GetAllBooks();
         IEnumerable<Book> FindBook(string searched);
+        Book GetBookById(long bokkId);
     }
 }

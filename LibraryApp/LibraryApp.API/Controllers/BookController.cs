@@ -51,10 +51,16 @@ namespace LibraryApp.API.Controllers
             return _bookRepository.GetAllBooks().ToList();
         }
 
-        [HttpGet("{name}")]
-        public ActionResult<IEnumerable<Book>> FindBookByName(string name)
+        //[HttpGet("{name}")]
+        //public ActionResult<IEnumerable<Book>> FindBookByName(string name)
+        //{
+        //    return _bookRepository.FindBook(name).ToList();
+        //}
+
+        [HttpGet("{id}")]
+        public ActionResult<Book> GetBookById(long id)
         {
-            return _bookRepository.FindBook(name).ToList();
+            return _bookRepository.GetBookById(id);
         }
     }
 }
