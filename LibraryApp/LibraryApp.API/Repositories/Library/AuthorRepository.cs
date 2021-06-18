@@ -39,5 +39,10 @@ namespace LibraryApp.API.Repositories.Library
             return true;
 
         }
+
+        public Author GetAuthorById(long authorId)
+        {
+            return _libraryDbContext.Authors.Single(x => x.AuthorId == authorId);
+        }
     }
 }
