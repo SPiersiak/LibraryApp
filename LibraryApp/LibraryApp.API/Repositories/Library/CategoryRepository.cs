@@ -37,5 +37,10 @@ namespace LibraryApp.API.Repositories.Library
             await _libraryDbContext.SaveChangesAsync();
             return true;
         }
+
+        public Category GetCategoryById(long categoryId)
+        {
+            return _libraryDbContext.Categories.Single(x => x.CategoryId == categoryId);
+        }
     }
 }

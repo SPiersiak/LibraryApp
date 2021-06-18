@@ -1,4 +1,5 @@
-﻿using LibraryApp.API.Repositories.Library;
+﻿using LibraryApp.API.Models;
+using LibraryApp.API.Repositories.Library;
 using LibraryApp.API.Repositories.Library.DTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -43,6 +44,12 @@ namespace LibraryApp.API.Controllers
             {
                 return BadRequest(ex);
             }
+        }
+
+        [HttpGet("{id}")]
+        public ActionResult<Category> GetCategoryById(long id)
+        {
+            return _categoryRepository.GetCategoryById(id);
         }
     }
 }

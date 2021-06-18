@@ -1,4 +1,5 @@
-﻿using LibraryApp.API.Repositories.Library.DTO;
+﻿using LibraryApp.API.Models;
+using LibraryApp.API.Repositories.Library.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,6 @@ namespace LibraryApp.API.Repositories.Library
     public interface ICategoryRepository
     {
         Task<bool> AddCategory(CategoryDto item);
+        Category GetCategoryById(long categoryId);
     }
 }
