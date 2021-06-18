@@ -38,5 +38,10 @@ namespace LibraryApp.API.Repositories.Library
             await _libraryDbContext.SaveChangesAsync();
             return true;
         }
+
+        public Publisher GetPublisherById(long publisherId)
+        {
+            return _libraryDbContext.Publishers.Single(x => x.PublisherId == publisherId);
+        }
     }
 }
