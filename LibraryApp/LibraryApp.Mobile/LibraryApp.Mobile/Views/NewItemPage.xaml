@@ -7,16 +7,43 @@
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              ios:Page.UseSafeArea="true">
     <ContentPage.Content>
-        <StackLayout Spacing="3" Padding="15">
-            <Label Text="Text" FontSize="Medium" />
-            <Entry Text="{Binding Text, Mode=TwoWay}" FontSize="Medium" />
-            <Label Text="Description" FontSize="Medium" />
-            <Editor Text="{Binding Description, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
-            <StackLayout Orientation="Horizontal">
-                <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
-                <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>
+        <ScrollView>
+            <StackLayout Spacing="3" Padding="15">
+                <Label Text="Book Name" FontSize="Medium" />
+                <Entry Text="{Binding BookName, Mode=TwoWay}" FontSize="Medium" />
+                <Label Text="Description" FontSize="Medium" />
+                <Editor Text="{Binding Description, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
+                <Label Text="ISBN number" FontSize="Medium" />
+                <Entry Text="{Binding ISBN, Mode=TwoWay}" FontSize="Medium" />
+                <Label Text="Release Date" FontSize="Medium" />
+                <Entry Text="{Binding Date, Mode=TwoWay}" FontSize="Medium" />
+                <Label Text="Book Language" FontSize="Medium" />
+                <Entry Text="{Binding BookLanguage, Mode=TwoWay}" FontSize="Medium" />
+                <Label Text="Author" FontSize="Medium" />
+                <Entry Text="{Binding AuthorId, Mode=TwoWay}" FontSize="Medium" />
+                <Label Text="Publisher" FontSize="Medium" />
+                <Entry Text="{Binding PublisherId, Mode=TwoWay}" FontSize="Medium" />
+                <Label Text="Category" FontSize="Medium" />
+                <Entry Text="{Binding CategoryId, Mode=TwoWay}" FontSize="Medium" />
+                <Label 
+                        Text="Book Photo"
+                        Grid.Row="4"
+                        HorizontalOptions="Center"></Label>
+                <Image Source="{Binding ImageSource}"
+                           Grid.Row="5"
+                           Margin="20,10,20,10"/>
+                <Button 
+                        Text="TakePicture" 
+                        Command="{Binding TakePicture}"
+                        Grid.Row="6"
+                        VerticalOptions="Center">
+                </Button>
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
+                    <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>
+                </StackLayout>
             </StackLayout>
-        </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
     
 </ContentPage>
