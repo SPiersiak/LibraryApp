@@ -11,6 +11,14 @@ namespace LibraryApp.Mobile.Services.Categories
     public class CategoryService : ICategoryService
     {
         public IRequestService _requestService => DependencyService.Get<IRequestService>();
+
+        public async Task<bool> AddNewCategory(Category newCategory)
+        {
+            var uri = $"https://192.168.0.107:45456/api/Category";
+            var result = await _requestService.PutAsync<Category>(uri,newCategory);
+            return true;
+        }
+
         public async Task<Category> GetCategoryById(long id)
         {
             var uri = $"https://192.168.0.107:45456/api/Category/" + id;

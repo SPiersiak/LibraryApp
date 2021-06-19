@@ -9,5 +9,6 @@ namespace LibraryApp.Mobile.Services.Categories
     public interface ICategoryService
     {
         Task<Category> GetCategoryById(long id);
+        Task<bool> AddNewCategory(Category newCategory);
     }
 }

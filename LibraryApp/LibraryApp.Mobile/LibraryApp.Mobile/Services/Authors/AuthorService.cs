@@ -12,6 +12,13 @@ namespace LibraryApp.Mobile.Services.Authors
     {
         public IRequestService _requestService => DependencyService.Get<IRequestService>();
 
+        public async Task<bool> AddNewAuthor(Author newAuthor)
+        {
+            var uri = $"https://192.168.0.107:45456/api/Author";
+            var result = await _requestService.PutAsync<Author>(uri,newAuthor);
+            return true;
+        }
+
         public async Task<Author> GetAuthor(long id)
         {
             var uri = $"https://192.168.0.107:45456/api/Author/" + id;

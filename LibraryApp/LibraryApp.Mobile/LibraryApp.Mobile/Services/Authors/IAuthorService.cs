@@ -9,5 +9,6 @@ namespace LibraryApp.Mobile.Services.Authors
     public interface IAuthorService
     {
         Task<Author> GetAuthor(long id);
+        Task<bool> AddNewAuthor(Author newAuthor);
     }
 }

@@ -9,5 +9,6 @@ namespace LibraryApp.Mobile.Services.Publishers
     public interface IPublisherService
     {
         Task<Publisher> GetPublisherById(long id);
+        Task<bool> AddNewPublisher(Publisher newPublisher);
     }
 }
