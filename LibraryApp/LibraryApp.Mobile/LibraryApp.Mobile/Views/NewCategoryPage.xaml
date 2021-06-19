@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LibraryApp.Mobile.Views.NewCategoryPage"
+             xmlns:vm="clr-namespace:LibraryApp.Mobile.ViewModels"
+             Title="Add new category">
+    
+    <ContentPage.BindingContext>
+        <vm:NewCategoryViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel" Command="{Binding CancelCommand}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Background="White" Spacing="3" Padding="15">
+                <Label Text="Add New Category"
+                        VerticalOptions="CenterAndExpand" 
+                        HorizontalOptions="CenterAndExpand" />
+                <Label Text="Category Name" FontSize="Medium" />
+                <Entry Text="{Binding CategoryName, Mode=TwoWay}" FontSize="Medium" />
+                <Label Text="Category Description" FontSize="Medium" />
+                <Editor Text="{Binding CategoryDescription, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Save" Command="{Binding SaveCategoryCommand}" HorizontalOptions="FillAndExpand"></Button>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

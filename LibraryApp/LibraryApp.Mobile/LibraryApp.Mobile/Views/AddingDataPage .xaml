@@ -7,51 +7,17 @@
     <ContentPage.BindingContext>
         <vm:AddingDataViewModel />
     </ContentPage.BindingContext>
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Cancel" Command="{Binding CancelCommand}" />
-    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <StackLayout Background="Aqua" Spacing="3" Padding="15">
-                    <Label Text="Add New Publisher"
-                        VerticalOptions="CenterAndExpand" 
-                        HorizontalOptions="CenterAndExpand" />
-                    <Label Text="Publisher Name" FontSize="Medium" />
-                    <Entry Text="{Binding PublisherName, Mode=TwoWay}" FontSize="Medium" />
-                    <Label Text="Publisher Description" FontSize="Medium" />
-                    <Editor Text="{Binding PublisherDesription, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
-                    <StackLayout Orientation="Horizontal">
-                        <Button Text="Save" Command="{Binding SavePublisherCommand}" HorizontalOptions="FillAndExpand"></Button>
-                    </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Add Author" Command="{Binding AuthorPageCommand}" HorizontalOptions="FillAndExpand"></Button>
                 </StackLayout>
-                <StackLayout Background="White" Spacing="3" Padding="15">
-                    <Label Text="Add New Category"
-                        VerticalOptions="CenterAndExpand" 
-                        HorizontalOptions="CenterAndExpand" />
-                    <Label Text="Category Name" FontSize="Medium" />
-                    <Entry Text="{Binding CategoryName, Mode=TwoWay}" FontSize="Medium" />
-                    <Label Text="Category Description" FontSize="Medium" />
-                    <Editor Text="{Binding CategoyDescription, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
-                    <StackLayout Orientation="Horizontal">
-                        <Button Text="Save" Command="{Binding SaveCategoryCommand}" HorizontalOptions="FillAndExpand"></Button>
-                    </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Add Category" Command="{Binding CategoryPageCommand}" HorizontalOptions="FillAndExpand"></Button>
                 </StackLayout>
-                <StackLayout Background="Red" Spacing="3" Padding="15">
-                    <Label Text="Add New Author"
-                        VerticalOptions="CenterAndExpand" 
-                        HorizontalOptions="CenterAndExpand" />
-                    <Label Text="Authro First Name" FontSize="Medium" />
-                    <Entry Text="{Binding AuthorFirstName, Mode=TwoWay}" FontSize="Medium" />
-                    <Label Text="Authro Last Name" FontSize="Medium" />
-                    <Entry Text="{Binding AuthroLastName, Mode=TwoWay}" FontSize="Medium" />
-                    <Label Text="Authot Country" FontSize="Medium" />
-                    <Entry Text="{Binding AuthorCountry, Mode=TwoWay}" FontSize="Medium" />
-                    <Label Text="Authro Birth Date" FontSize="Medium" />
-                    <Entry Text="{Binding AuthroBirthDate, Mode=TwoWay}" FontSize="Medium" />
-                    <StackLayout Orientation="Horizontal">
-                        <Button Text="Save" Command="{Binding SaveAuthorCommand}" HorizontalOptions="FillAndExpand"></Button>
-                    </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Add Publisher" Command="{Binding PublisherPageCommand}" HorizontalOptions="FillAndExpand"></Button>
                 </StackLayout>
             </StackLayout>
         </ScrollView>

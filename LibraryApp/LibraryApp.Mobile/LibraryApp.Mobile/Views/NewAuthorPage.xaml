@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LibraryApp.Mobile.Views.NewAuthorPage"
+             xmlns:vm="clr-namespace:LibraryApp.Mobile.ViewModels"
+             Title="Add New Author">
+
+    <ContentPage.BindingContext>
+        <vm:NewAuthorViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel" Command="{Binding CancelCommand}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="3" Padding="15">
+                <Label Text="Add New Author"
+                            VerticalOptions="CenterAndExpand" 
+                            HorizontalOptions="CenterAndExpand" />
+                <Label Text="Author First Name" FontSize="Medium" />
+                <Entry Text="{Binding AuthorFirstName, Mode=TwoWay}" FontSize="Medium" />
+                <Label Text="Author Last Name" FontSize="Medium" />
+                <Entry Text="{Binding AuthroLastName, Mode=TwoWay}" FontSize="Medium" />
+                <Label Text="Author Country" FontSize="Medium" />
+                <Entry Text="{Binding AuthorCountry, Mode=TwoWay}" FontSize="Medium" />
+                <Label Text="Author Birth Date" FontSize="Medium" />
+                <Entry Text="{Binding AuthroBirthDate, Mode=TwoWay}" FontSize="Medium" />
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Save" Command="{Binding SaveAuthorCommand}" HorizontalOptions="FillAndExpand"></Button>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
