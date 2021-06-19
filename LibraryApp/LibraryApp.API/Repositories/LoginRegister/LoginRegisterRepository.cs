@@ -20,14 +20,22 @@ namespace LibraryApp.API.Repositories.LoginRegister
 
         public async Task<User> LoginAsync(string userName, string password)
         {
-            var user = await _libraryDbContext.Users.Where(x => x.UserName == userName).FirstOrDefaultAsync();
+            var user = await _libraryDbContext.Users.Where(x => x.UserName.Equals(userName)).FirstOrDefaultAsync();
             if(user == null)
             {
-                throw new Exception("Błąd logowania");
+                return new User()
+                {
+                    UserID = 0,
+                    UserName = null
+                };
             }
             if(user.Password != password)
             {
-                throw new Exception("Błąd logowania");
+                return new User()
+                {
+                    UserID = 0,
+                    UserName = null
+                };
             }
             return new User()
             {
@@ -47,12 +55,12 @@ namespace LibraryApp.API.Repositories.LoginRegister
             if(user != null)
             {
                 return false;
-                throw new Exception("Jest juz taki user");
+                //throw new Exception("Jest juz taki user");
             }
             if(String.IsNullOrEmpty(firstName) || String.IsNullOrEmpty(lastName) || String.IsNullOrEmpty(email) || String.IsNullOrEmpty(password))
             {
                 return false;
-                throw new Exception("Wymagane pola nie są uzupełnine");
+                //throw new Exception("Wymagane pola nie są uzupełnine");
             }
             var newUser = new User()
             {
