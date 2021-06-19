@@ -1,4 +1,5 @@
 ﻿using LibraryApp.Mobile.Services;
+using LibraryApp.Mobile.Services.Authentication;
 using LibraryApp.Mobile.Services.Authors;
 using LibraryApp.Mobile.Services.BookService;
 using LibraryApp.Mobile.Services.Categories;
@@ -24,11 +25,13 @@ namespace LibraryApp.Mobile
             DependencyService.Register<IAuthorService, AuthorService>();
             DependencyService.Register<ICategoryService, CategoryService>();
             DependencyService.Register<IPublisherService, PublisherService>();
+            DependencyService.Register<IAuthenticationService, AuthenticationService>();
             MainPage = new AppShell();
         }
 
-        protected override void OnStart()
+        protected override async void OnStart()
         {
+            await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
         }
 
         protected override void OnSleep()
