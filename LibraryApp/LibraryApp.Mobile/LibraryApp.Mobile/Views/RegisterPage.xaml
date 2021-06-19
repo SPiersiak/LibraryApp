@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LibraryApp.Mobile.Views.RegisterPage"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:vm="clr-namespace:LibraryApp.Mobile.ViewModels">
+    <ContentPage.BindingContext>
+        <vm:RegisterViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid BackgroundColor="#616161">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <!--Tu powinien zostac dodany banner-->
+            <Image Source="regLog.png" 
+                   Grid.Row="0" 
+                   Grid.ColumnSpan="2"
+                   WidthRequest="200"
+                   HeightRequest="200"></Image>
+            <ScrollView  Grid.Row = "1" Grid.ColumnSpan="2">
+                <StackLayout>
+                    <Label 
+                            Text="First Name"
+                            Margin="55,0"
+                            TextColor="White"
+                            FontSize="Subtitle"></Label>
+                    <Frame Margin="20,0,20,0" CornerRadius="130" BackgroundColor="#FF8F00">
+                        <Entry Text="{Binding FirstName}" 
+                               Placeholder="Insert your first name"
+                               TextColor="White"
+                               PlaceholderColor="White"
+                               HeightRequest="39"></Entry>
+                    </Frame>
+                    <Label 
+                        Text="Last Name"
+                        Margin="55,0"
+                        TextColor="White"
+                        FontSize="Subtitle"></Label>
+                    <Frame Margin="20,0,20,0" CornerRadius="130" BackgroundColor="#FF8F00">
+                        <Entry Text="{Binding LastName}"  
+                               Placeholder="Insert your last name"
+                               TextColor="White"
+                               PlaceholderColor="White"
+                               HeightRequest="39"></Entry>
+                    </Frame>
+                    <Label 
+                        Text="User Name"
+                        Margin="55,0"
+                        TextColor="White"
+                        FontSize="Subtitle"></Label>
+                    <Frame Margin="20,0,20,0" CornerRadius="130" BackgroundColor="#FF8F00">
+                        <Entry Text="{Binding UserName}" 
+                               Placeholder="Insert your user name"
+                               TextColor="White"
+                               PlaceholderColor="White"
+                               HeightRequest="39"></Entry>
+                    </Frame>
+                    <Label 
+                            Text="Email"
+                            Margin="55,0"
+                            TextColor="White"
+                        FontSize="Subtitle"></Label>
+                    <Frame Margin="20,0,20,0" CornerRadius="130" BackgroundColor="#FF8F00">
+                        <Entry Text="{Binding Email}" 
+                               Placeholder="Insert your email"
+                               TextColor="White"
+                               PlaceholderColor="White"
+                               HeightRequest="39"></Entry>
+                    </Frame>
+                    <Label 
+                        Text="Password"
+                        Margin="55,0"
+                        TextColor="White"
+                        FontSize="Subtitle"></Label>
+                    <Frame Margin="20,0,20,0" CornerRadius="130" BackgroundColor="#FF8F00">
+                        <Entry Text="{Binding Password}" 
+                               IsPassword="True" 
+                               Placeholder="Insert your password"
+                               TextColor="White"
+                               PlaceholderColor="White"
+                               HeightRequest="39"></Entry>
+                    </Frame>
+                </StackLayout>
+            </ScrollView>
+
+            <Button 
+                Text="Cancel"
+                Grid.Row = "2" 
+                Grid.Column ="0"
+                Clicked="Cancel_Clicked"
+                BackgroundColor="#FF8F00" 
+                CornerRadius="35"
+                TextColor="white" 
+                FontSize="Subtitle"
+                Margin="10,0,0,5"></Button>
+            <Button 
+                Text="Register" 
+                Grid.Row = "2" 
+                Grid.Column="1" 
+                Command="{Binding RegisterCommand}"
+                BackgroundColor="#FF8F00" 
+                CornerRadius="35"
+                TextColor="white" 
+                FontSize="Subtitle"
+                Margin="0,0,10,5"></Button>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
