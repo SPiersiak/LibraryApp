@@ -17,5 +17,9 @@ namespace LibraryApp.Mobile.Views
             InitializeComponent();
             this.BindingContext = new LoginViewModel();
         }
+        private void RegistrationButton_Clicked(object sender, EventArgs e)
+        {
+            //Navigation.PushAsync(new RegistrationPage());
+        }
     }
 }
