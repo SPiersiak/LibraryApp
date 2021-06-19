@@ -14,6 +14,13 @@ namespace LibraryApp.Mobile.Services.BookService
     {
         public IRequestService _requestService => DependencyService.Get<IRequestService>();
 
+        public async Task<bool> AddNewBook(Book newBook)
+        {
+            var uri = $"https://192.168.0.107:45456/api/Book";
+            var result = await _requestService.PutAsync<Book>(uri, newBook);
+            return true;
+        }
+
         public async Task<Book> GetBookById(long bookId)
         {
             var uri = $"https://192.168.0.107:45456/api/Book/"+ bookId;

@@ -10,5 +10,6 @@ namespace LibraryApp.Mobile.Services.BookService
     {
         Task<IEnumerable<Book>> GetBooks();
         Task<Book> GetBookById(long bookId);
+        Task<bool> AddNewBook(Book newBook); 
     }
 }

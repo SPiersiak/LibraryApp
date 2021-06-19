@@ -16,6 +16,5 @@ namespace LibraryApp.Mobile.Models
         public long AuthorId { get; set; }
         public long PublisherId { get; set; }
         public long CategoryId { get; set; }
-        public Author Author { get; set; }
     }
 }
