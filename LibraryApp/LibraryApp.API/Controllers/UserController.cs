@@ -24,7 +24,17 @@ namespace LibraryApp.API.Controllers
         [HttpPut]
         public IActionResult UpdateUser(UserDto user)
         {
-            var result = _userRepository.Update(user);
+            User updateUser = new User()
+            {
+                UserID = user.UserID,
+                UserName = user.UserName,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email,
+                Password = user.Password,
+                IsEmployee = user.IsEmployee
+            };
+            var result = _userRepository.Update(updateUser);
             if (result.Result == true)
             {
                 return Ok();

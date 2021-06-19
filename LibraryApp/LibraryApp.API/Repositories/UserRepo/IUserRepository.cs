@@ -9,7 +9,7 @@ namespace LibraryApp.API.Repositories.UserRepo
 {
     public interface IUserRepository
     {
-        Task<bool> Update(UserDto user);
+        Task<bool> Update(User user);
         IEnumerable<Reservation> GetMyReservation(long id);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using LibraryApp.API.Data;
+using LibraryApp.API.Models;
 using LibraryApp.API.Repositories.UserRepo.DTO;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -23,14 +24,14 @@ namespace LibraryApp.API.Repositories.UserRepo
 
         }
 
-        public async Task<bool> Update(UserDto user)
+        public async Task<bool> Update(User user)
         {
-            var findUser = await _libraryDbContext.Users.Where(x => x.UserID == user.UserID).FirstOrDefaultAsync();
+            var findUser = await _libraryDbContext.Users.Where(x => x.UserID == user.UserID).AsNoTracking().FirstOrDefaultAsync();
             if(findUser == null)
             {
                 return false;
             }
-            _libraryDbContext.Entry(user).State = EntityState.Modified;
+            _libraryDbContext.Update(user);
             _libraryDbContext.SaveChanges();
             return true;
         }
