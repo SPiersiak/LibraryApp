@@ -20,7 +20,7 @@ namespace LibraryApp.API.Repositories.Library
             var reservation = new Reservation()
             {
                 UserId = userId,
-                CopiesId = bookId,
+                BookId = bookId,
                 ReservationStart = DateTime.Now,
                 ReservationEnd = DateTime.Now.AddDays(7)
             };
@@ -55,6 +55,27 @@ namespace LibraryApp.API.Repositories.Library
                 _libraryDbContext.SaveChanges();
                 return true;
             }
+        }
+
+        public IEnumerable<Reservation> GetAllActiveReservationForUser(long userId)
+        {
+            DateTime dateTime = DateTime.Now;
+            IEnumerable<Reservation> reservations = _libraryDbContext.Reservations.Where(x => x.UserId == userId && x.ReservationEnd >= dateTime).ToList();
+            return reservations;
+        }
+
+        public IEnumerable<Reservation> GetAllInActiveReserwationForUser(long userId)
+        {
+            DateTime dateTime = DateTime.Now;
+            IEnumerable<Reservation> reservations = _libraryDbContext.Reservations.Where(x => x.UserId == userId && x.ReservationEnd <= dateTime).ToList();
+            return reservations;
+        }
+
+        public Reservation GetAllReservationForBookID(long bookId)
+        {
+            DateTime dateTime = DateTime.Now;
+            Reservation reservations = _libraryDbContext.Reservations.Where(x => x.BookId == bookId && x.ReservationEnd >= dateTime).FirstOrDefault();
+            return reservations;
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using LibraryApp.API.Repositories.Library;
+﻿using LibraryApp.API.Models;
+using LibraryApp.API.Repositories.Library;
+using LibraryApp.API.Repositories.Library.DTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -19,10 +21,10 @@ namespace LibraryApp.API.Controllers
             _reservationRepository = reservationRepository;
         }
 
-        [HttpPut("{bookId}, {userId}")]
-        public IActionResult Addreservation(long bookId, long userId)
+        [HttpPut]
+        public IActionResult Addreservation([FromBody] ReservationDto reservationDto)
         {
-            var result = _reservationRepository.AddNewReservation(bookId, userId);
+            var result = _reservationRepository.AddNewReservation(reservationDto.BookId, reservationDto.UserId);
             if (result == false)
                 return BadRequest();
             else
@@ -46,6 +48,21 @@ namespace LibraryApp.API.Controllers
                 return BadRequest();
             else
                 return Ok();
+        }
+        [HttpGet("ActiveReservation/{userId}")]
+        public ActionResult<IEnumerable<Reservation>> GetActiveReservationForUser(long userId)
+        {
+            return _reservationRepository.GetAllActiveReservationForUser(userId).ToList();
+        }
+        [HttpGet("InActiveReservation/{userId}")]
+        public ActionResult<IEnumerable<Reservation>> GetInActiveReservationForUser(long userId)
+        {
+            return _reservationRepository.GetAllInActiveReserwationForUser(userId).ToList();
+        }
+        [HttpGet("BookReservation/{bookId}")]
+        public ActionResult<Reservation> GetActiveReservationForBook(long bookId)
+        {
+            return _reservationRepository.GetAllReservationForBookID(bookId);
         }
     }
 }
