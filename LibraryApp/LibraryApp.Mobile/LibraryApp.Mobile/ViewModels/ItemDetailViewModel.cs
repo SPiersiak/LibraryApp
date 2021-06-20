@@ -3,6 +3,8 @@ using LibraryApp.Mobile.Services.Authors;
 using LibraryApp.Mobile.Services.BookService;
 using LibraryApp.Mobile.Services.Categories;
 using LibraryApp.Mobile.Services.Publishers;
+using LibraryApp.Mobile.Services.Reservations;
+using LibraryApp.Mobile.Services.Reservations.Dto;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -19,6 +21,7 @@ namespace LibraryApp.Mobile.ViewModels
         public IAuthorService _authorService => DependencyService.Get<IAuthorService>();
         public IPublisherService _publisherService => DependencyService.Get<IPublisherService>();
         public ICategoryService _categoryService => DependencyService.Get<ICategoryService>();
+        public IReservationService _reservationService => DependencyService.Get<IReservationService>();
         private long bookId;
         private string title;
         private string description;
@@ -27,9 +30,15 @@ namespace LibraryApp.Mobile.ViewModels
         private string publisher;
         private string isbn;
         private string date;
+        private string reservationInfo;
+        private bool doReservation;
         public long Id { get; set; }
         public ImageSource _imageSource = "";
-
+        public Command ReservationCommand { get; }
+        public ItemDetailViewModel()
+        {
+            ReservationCommand = new Command(NewReservation);
+        }
         public string Text
         {
             get => title;
@@ -66,6 +75,16 @@ namespace LibraryApp.Mobile.ViewModels
             get => category;
             set => SetProperty(ref category, value);
         }
+        public string ReservationInfo
+        {
+            get => reservationInfo;
+            set => SetProperty(ref reservationInfo, value);
+        }
+        public bool DoReservation
+        {
+            get => doReservation;
+            set => SetProperty(ref doReservation, value);
+        }
 
         public long BookId
         {
@@ -101,6 +120,7 @@ namespace LibraryApp.Mobile.ViewModels
                 var author = await _authorService.GetAuthor(item.AuthorId);
                 var pub = await _publisherService.GetPublisherById(item.PublisherId);
                 var cate = await _categoryService.GetCategoryById(item.CategoryId);
+                var rese = await _reservationService.GetActiveReservationForBook(item.BookId);
                 AuthorName = author.FirstName + " " + author.LastName;
                 Id = item.BookId;
                 Text = item.BookName;
@@ -111,11 +131,30 @@ namespace LibraryApp.Mobile.ViewModels
                 Date = item.ReleaseDate.ToString();
                 ImageSource = Xamarin.Forms.ImageSource.FromStream(
                     () => new MemoryStream(Convert.FromBase64String(Convert.ToBase64String(item.Image))));
+                if (rese == null)
+                {
+                    ReservationInfo = "Ta książka nie jest zarezerwowana";
+                    DoReservation = true;
+                }
+                else
+                {
+                    ReservationInfo = "Ta książka jest zarezerwowana";
+                    DoReservation = false;
+                }
             }
             catch (Exception)
             {
                 Debug.WriteLine("Failed to Load Item");
             }
+        }
+        private async void NewReservation()
+        {
+            ReservationDto reservationDto = new ReservationDto()
+            {
+                BookId = BookId,
+                UserId = long.Parse(Settings.UserId)
+            };
+            await _reservationService.AddNewReservation(reservationDto);
         }
     }
 }
