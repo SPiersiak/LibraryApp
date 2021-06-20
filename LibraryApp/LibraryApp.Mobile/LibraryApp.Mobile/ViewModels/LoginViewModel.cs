@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
+using System.Threading.Tasks;
 
 namespace LibraryApp.Mobile.ViewModels
 {
@@ -12,11 +13,13 @@ namespace LibraryApp.Mobile.ViewModels
     {
         public IAuthenticationService _authenticationService => DependencyService.Get<IAuthenticationService>();
         public Command LoginCommand { get; }
-        string loginName = "";
-        string password = "";
+        public Command RegisterCommand { get; }
+        private string loginName = "";
+        private string password = "";
         public LoginViewModel()
         {
             LoginCommand = new Command(LogIn,ValidateSave);
+            RegisterCommand = new Command(Register);
             this.PropertyChanged +=
                 (_, __) => LoginCommand.ChangeCanExecute();
         }
@@ -47,13 +50,19 @@ namespace LibraryApp.Mobile.ViewModels
             if(result == true)
             {
                 IsBusy = false;
-                await Application.Current.MainPage.DisplayAlert("Sukces", "Dane Porawne", "OK");
+                //await Application.Current.MainPage.DisplayAlert("Sukces", "Dane Porawne", "OK");
+                //await Task.Delay(400);
+                await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
             }
             else
             {
                 IsBusy = false;
                 await Application.Current.MainPage.DisplayAlert("Błąd", "Nie poprawne dane", "OK");
             }
+        }
+        private async void Register()
+        {
+            await Shell.Current.GoToAsync($"{nameof(RegisterPage)}");
         }
 
     }
