@@ -2,6 +2,7 @@
 using LibraryApp.Mobile.Services.BookService;
 using LibraryApp.Mobile.Views;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
@@ -29,7 +30,6 @@ namespace LibraryApp.Mobile.ViewModels
 
             AddBookCommand = new Command(OnAddItem);
         }
-
         async Task ExecuteLoadItemsCommand()
         {
             IsBusy = true;
