@@ -16,7 +16,7 @@ namespace LibraryApp.Mobile.ViewModels
         public ObservableCollection<Book> Books { get; }
 
         public Command LoadBooksCommand { get; }
-        public Command AddItemCommand { get; }
+        public Command AddBookCommand { get; }
         public Command<Book> BookTapped { get; }
 
         public ItemsViewModel()
@@ -27,7 +27,7 @@ namespace LibraryApp.Mobile.ViewModels
 
             BookTapped = new Command<Book>(OnItemSelected);
 
-            AddItemCommand = new Command(OnAddItem);
+            AddBookCommand = new Command(OnAddItem);
         }
 
         async Task ExecuteLoadItemsCommand()

@@ -5,6 +5,8 @@ using LibraryApp.Mobile.Services.Categories;
 using LibraryApp.Mobile.Services.Publishers;
 using System;
 using System.Diagnostics;
+using System.IO;
+using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -26,6 +28,7 @@ namespace LibraryApp.Mobile.ViewModels
         private string isbn;
         private string date;
         public long Id { get; set; }
+        public ImageSource _imageSource = "";
 
         public string Text
         {
@@ -76,6 +79,18 @@ namespace LibraryApp.Mobile.ViewModels
                 LoadItemId(value);
             }
         }
+        public ImageSource ImageSource
+        {
+            get
+            {
+                return _imageSource;
+            }
+            set
+            {
+                _imageSource = value;
+                OnPropertyChanged();
+            }
+        }
 
         public async void LoadItemId(long itemId)
         {
@@ -94,6 +109,8 @@ namespace LibraryApp.Mobile.ViewModels
                 Category = cate.CategoryName;
                 ISBN = item.ISBN;
                 Date = item.ReleaseDate.ToString();
+                ImageSource = Xamarin.Forms.ImageSource.FromStream(
+                    () => new MemoryStream(Convert.FromBase64String(Convert.ToBase64String(item.Image))));
             }
             catch (Exception)
             {

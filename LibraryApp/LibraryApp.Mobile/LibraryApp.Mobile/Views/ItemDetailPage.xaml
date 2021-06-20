@@ -19,6 +19,14 @@
             <Label Text="{Binding ISBN}" FontSize="Small"/>
             <Label Text="Relese Date:" FontSize="Medium" />
             <Label Text="{Binding Date}" FontSize="Small"/>
+            <Label 
+                        Text="Book Photo"
+                        Grid.Row="4"
+                        HorizontalOptions="Center"></Label>
+            <Image Source="{Binding ImageSource}"
+                           Margin="20,10,20,10"
+                           HeightRequest="400" 
+                           WidthRequest="400"/>
         </StackLayout>
     </ScrollView>
 

@@ -22,7 +22,7 @@ namespace LibraryApp.Mobile.ViewModels
         private string authorId;
         private string publisherId;
         private string categoryId;
-        private string bookPhoto;
+        private byte[] bookPhoto;
         public ImageSource _imageSource = "";
 
         public ICommand TakePicture => new Command(async () => await TakePictureAsync());
@@ -42,7 +42,7 @@ namespace LibraryApp.Mobile.ViewModels
                 && !String.IsNullOrWhiteSpace(date)
                 && !String.IsNullOrWhiteSpace(bookLanguage)
                 && !String.IsNullOrWhiteSpace(authorId)
-                && !String.IsNullOrWhiteSpace(categoryId)
+                && !String.IsNullOrWhiteSpace(categoryId) 
                 && !String.IsNullOrWhiteSpace(publisherId);
         }
 
@@ -100,7 +100,7 @@ namespace LibraryApp.Mobile.ViewModels
                 OnPropertyChanged();
             }
         }
-        public string BookPhoto
+        public byte[] BookPhoto
         {
             get
             {
@@ -137,13 +137,14 @@ namespace LibraryApp.Mobile.ViewModels
                 using (var stream = await photo.OpenReadAsync())
                 {
                     byte[] photoData = new byte[stream.Length];
+                    BookPhoto = photoData;
 
                     stream.Read(photoData, 0, Convert.ToInt32(stream.Length));
 
 
                     base64 = Convert.ToBase64String(photoData);
 
-                    BookPhoto = base64;
+                    //BookPhoto = base64;
                 }
 
 
@@ -181,10 +182,10 @@ namespace LibraryApp.Mobile.ViewModels
                 AuthorId = long.Parse(AuthorId),
                 PublisherId = long.Parse(PublisherId),
                 CategoryId = long.Parse(CategoryId),
-                Image = Encoding.ASCII.GetBytes(BookPhoto)
+                Image = BookPhoto
             };
             var result = await _bookService.AddNewBook(book);
-            await Application.Current.MainPage.DisplayAlert("Save", "The application has been sent", "OK");
+            await Application.Current.MainPage.DisplayAlert("Save", "New Book was added", "OK");
             await Task.Delay(400);
             // This will pop the current page off the navigation stack
             await Shell.Current.GoToAsync("..");

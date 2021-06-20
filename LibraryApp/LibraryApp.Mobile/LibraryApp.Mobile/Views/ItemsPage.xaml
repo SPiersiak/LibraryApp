@@ -5,11 +5,17 @@
              Title="{Binding Title}"
              xmlns:local="clr-namespace:LibraryApp.Mobile.ViewModels"  
              xmlns:model="clr-namespace:LibraryApp.Mobile.Models"  
-             x:Name="BrowseItemsPage">
+             x:Name="BrowseItemsPage"
+             xmlns:p="clr-namespace:LibraryApp.Mobile">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Command="{Binding AddBookCommand}" />
     </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <p:ImgConverter x:Key="converter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <!--
       x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.
       https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/data-binding/compiled-bindings
@@ -29,6 +35,14 @@
                             LineBreakMode="NoWrap"
                             Style="{DynamicResource ListItemDetailTextStyle}"
                             FontSize="13" />
+                        <StackLayout Grid.Column="1" HorizontalOptions="Center"  BackgroundColor="#FF8F00">
+                            <Frame CornerRadius="5" IsClippedToBounds="True" Padding="0">
+                                <Image Source="{Binding Image, Converter={StaticResource converter}}" 
+                                       HeightRequest="50" 
+                                       WidthRequest="50"
+                                        Aspect="AspectFill"/>
+                            </Frame>
+                        </StackLayout>
                         <StackLayout.GestureRecognizers>
                             <TapGestureRecognizer 
                                 NumberOfTapsRequired="1"
