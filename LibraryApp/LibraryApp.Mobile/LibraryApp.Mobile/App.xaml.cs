@@ -5,6 +5,7 @@ using LibraryApp.Mobile.Services.BookService;
 using LibraryApp.Mobile.Services.Categories;
 using LibraryApp.Mobile.Services.Publishers;
 using LibraryApp.Mobile.Services.Request;
+using LibraryApp.Mobile.Services.Reservations;
 using LibraryApp.Mobile.Services.UserServices;
 using LibraryApp.Mobile.Views;
 using System;
@@ -28,6 +29,7 @@ namespace LibraryApp.Mobile
             DependencyService.Register<IPublisherService, PublisherService>();
             DependencyService.Register<IAuthenticationService, AuthenticationService>();
             DependencyService.Register<IUserService, UserService>();
+            DependencyService.Register<IReservationService, ReservationService>();
             MainPage = new AppShell();
         }
 
