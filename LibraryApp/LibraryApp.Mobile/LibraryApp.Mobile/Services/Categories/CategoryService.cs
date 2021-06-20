@@ -14,14 +14,14 @@ namespace LibraryApp.Mobile.Services.Categories
 
         public async Task<bool> AddNewCategory(Category newCategory)
         {
-            var uri = $"https://192.168.0.107:45456/api/Category";
+            var uri = $"{Settings.Server_Endpoint}Category";
             var result = await _requestService.PutAsync<Category>(uri,newCategory);
             return true;
         }
 
         public async Task<Category> GetCategoryById(long id)
         {
-            var uri = $"https://192.168.0.107:45456/api/Category/" + id;
+            var uri = $"{Settings.Server_Endpoint}Category/" + id;
             var result = await _requestService.GetAsync<Category>(uri);
             return result;
         }

@@ -13,7 +13,7 @@ namespace LibraryApp.Mobile.Services.UserServices
         public IRequestService _requestService => DependencyService.Get<IRequestService>();
         public async Task<bool> UpdateUserData(User user)
         {
-            var uri = $"https://192.168.0.107:45456/api/User";
+            var uri = $"{Settings.Server_Endpoint}User";
             var result = await _requestService.PutAsync<User>(uri, user);
             return true;
         }

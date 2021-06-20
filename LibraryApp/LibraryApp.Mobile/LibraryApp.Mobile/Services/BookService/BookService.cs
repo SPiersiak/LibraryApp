@@ -16,21 +16,21 @@ namespace LibraryApp.Mobile.Services.BookService
 
         public async Task<bool> AddNewBook(Book newBook)
         {
-            var uri = $"https://192.168.0.107:45456/api/Book";
+            var uri = $"{Settings.Server_Endpoint}Book";
             var result = await _requestService.PutAsync<Book>(uri, newBook);
             return true;
         }
 
         public async Task<Book> GetBookById(long bookId)
         {
-            var uri = $"https://192.168.0.107:45456/api/Book/"+ bookId;
+            var uri = $"{Settings.Server_Endpoint}Book/"+ bookId;
             var result = await _requestService.GetAsync<Book>(uri);
             return result;
         }
 
         public async Task<IEnumerable<Book>> GetBooks()
         {
-            var uri = $"https://192.168.0.107:45456/api/Book";
+            var uri = $"{Settings.Server_Endpoint}Book";
             var result = await _requestService.GetAsync<List<Book>>(uri);
             return result;
         }

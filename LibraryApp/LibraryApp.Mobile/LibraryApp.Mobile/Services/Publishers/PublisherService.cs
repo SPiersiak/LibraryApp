@@ -14,14 +14,14 @@ namespace LibraryApp.Mobile.Services.Publishers
 
         public async Task<bool> AddNewPublisher(Publisher newPublisher)
         {
-            var uri = $"https://192.168.0.107:45456/api/Publisher";
+            var uri = $"{Settings.Server_Endpoint}Publisher";
             var result = await _requestService.PutAsync<Publisher>(uri, newPublisher);
             return true;
         }
 
         public async Task<Publisher> GetPublisherById(long id)
         {
-            var uri = $"https://192.168.0.107:45456/api/Publisher/" + id;
+            var uri = $"{Settings.Server_Endpoint}Publisher/" + id;
             var result = await _requestService.GetAsync<Publisher>(uri);
             return result;
         }

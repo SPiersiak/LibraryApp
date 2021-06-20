@@ -14,7 +14,7 @@ namespace LibraryApp.Mobile.Services.Authentication
         public IRequestService _requestService => DependencyService.Get<IRequestService>();
         public async Task<bool> Login(LoginDto input)
         {
-            var uri = $"https://192.168.0.107:45456/api/Authentication";
+            var uri = $"{Settings.Server_Endpoint}Authentication";
             var result = await _requestService.PostAsync<LoginDto, User>(uri, input);
             if (result.UserName == null)
             {
@@ -35,7 +35,7 @@ namespace LibraryApp.Mobile.Services.Authentication
 
         public async Task<bool> Register(RegisterDto input)
         {
-            var uri = $"https://192.168.0.107:45456/api/Authentication";
+            var uri = $"{Settings.Server_Endpoint}Authentication";
             var result = await _requestService.PutAsync<RegisterDto,string>(uri, input);
             if (result.Equals("istnieje juz taki uzytkowik"))
                 return false;
