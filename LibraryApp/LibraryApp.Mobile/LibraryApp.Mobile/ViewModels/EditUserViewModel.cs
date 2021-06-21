@@ -11,13 +11,24 @@ namespace LibraryApp.Mobile.ViewModels
     {
         public IUserService _userService => DependencyService.Get<IUserService>();
         public Command SaveChangesCommand { get; }
-        private string firstName = Settings.FirstName;
-        private string lastName = Settings.LastName;
-        private string email = Settings.Email;
-        private string password = Settings.Password;
+        private string firstName;
+        private string lastName;
+        private string email;
+        private string password;
         public EditUserViewModel()
         {
+            MessagingCenter.Subscribe<LoginViewModel, User>(this, "message", (sender, arg) =>
+            {
+                FirstName = arg.FirstName;
+                LastName = arg.LastName;
+                Email = arg.Email;
+                Password = arg.Password;
+            });
             SaveChangesCommand = new Command(SaveChanges);
+            ////FirstName = Settings.FirstName;
+            ////LastName = Settings.LastName;
+            ////Email = Settings.Email;
+            ////Password = Settings.Password;
         }
         public string FirstName
         {
@@ -48,7 +59,7 @@ namespace LibraryApp.Mobile.ViewModels
         private async void SaveChanges()
         {
             var role = false;
-            if(Settings.Role == "tak")
+            if(Settings.Role == "Tak")
                 role = true;
             else
                 role = false;

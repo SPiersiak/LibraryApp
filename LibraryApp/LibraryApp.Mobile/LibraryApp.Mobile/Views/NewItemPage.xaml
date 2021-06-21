@@ -8,39 +8,103 @@
              ios:Page.UseSafeArea="true">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Spacing="3" Padding="15">
-                <Label Text="Book Name" FontSize="Medium" />
-                <Entry Text="{Binding BookName, Mode=TwoWay}" FontSize="Medium" />
-                <Label Text="Description" FontSize="Medium" />
-                <Editor Text="{Binding Description, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
-                <Label Text="ISBN number" FontSize="Medium" />
-                <Entry Text="{Binding ISBN, Mode=TwoWay}" FontSize="Medium" />
-                <Label Text="Release Date" FontSize="Medium" />
-                <Entry Text="{Binding Date, Mode=TwoWay}" FontSize="Medium" />
-                <Label Text="Book Language" FontSize="Medium" />
-                <Entry Text="{Binding BookLanguage, Mode=TwoWay}" FontSize="Medium" />
-                <Label Text="Author" FontSize="Medium" />
-                <Entry Text="{Binding AuthorId, Mode=TwoWay}" FontSize="Medium" />
-                <Label Text="Publisher" FontSize="Medium" />
-                <Entry Text="{Binding PublisherId, Mode=TwoWay}" FontSize="Medium" />
-                <Label Text="Category" FontSize="Medium" />
-                <Entry Text="{Binding CategoryId, Mode=TwoWay}" FontSize="Medium" />
+            <StackLayout Spacing="3" Padding="15" VerticalOptions="Center"
+            BackgroundColor="#616161">
+                <Label Text="Book Name" Margin="55,0"
+                TextColor="White"
+                FontSize="Subtitle"/>
+                <Frame Margin="20,0,20,0" CornerRadius="130" BackgroundColor="#FF8F00">
+                    <Entry Text="{Binding BookName, Mode=TwoWay}" TextColor="White"
+                    PlaceholderColor="White"
+                    HeightRequest="39"
+                    FontSize="Body" />
+                </Frame>
+                <Label Text="Description"  Margin="55,0"
+                TextColor="White"
+                FontSize="Subtitle" />
+                <Frame Margin="20,0,20,0" CornerRadius="130" BackgroundColor="#FF8F00">
+                <Entry Text="{Binding Description, Mode=TwoWay}" TextColor="White"
+                    PlaceholderColor="White"
+                    HeightRequest="39"
+                    FontSize="Body" />
+                </Frame>
+                <Label Text="ISBN number"  Margin="55,0"
+                TextColor="White"
+                FontSize="Subtitle" />
+                    <Frame Margin="20,0,20,0" CornerRadius="130" BackgroundColor="#FF8F00">
+                <Entry Text="{Binding ISBN, Mode=TwoWay}" TextColor="White"
+                    PlaceholderColor="White"
+                    HeightRequest="39"
+                    FontSize="Body" />
+                </Frame>
+                <Label Text="Release Date"  Margin="55,0"
+                TextColor="White"
+                FontSize="Subtitle" />
+                        <Frame Margin="20,0,20,0" CornerRadius="130" BackgroundColor="#FF8F00">
+                <Entry Text="{Binding Date, Mode=TwoWay}" TextColor="White"
+                    PlaceholderColor="White"
+                    HeightRequest="39"
+                    FontSize="Body" />
+                </Frame>
+                <Label Text="Book Language"  Margin="55,0"
+                TextColor="White"
+                FontSize="Subtitle" />
+                            <Frame Margin="20,0,20,0" CornerRadius="130" BackgroundColor="#FF8F00">
+                <Entry Text="{Binding BookLanguage, Mode=TwoWay}" TextColor="White"
+                    PlaceholderColor="White"
+                    HeightRequest="39"
+                    FontSize="Body" />
+                </Frame>
+                <Label Text="Author"  Margin="55,0"
+                TextColor="White"
+                FontSize="Subtitle" />
+                                <Frame Margin="20,0,20,0" CornerRadius="130" BackgroundColor="#FF8F00">
+                <Entry Text="{Binding AuthorId, Mode=TwoWay}" TextColor="White"
+                    PlaceholderColor="White"
+                    HeightRequest="39"
+                    FontSize="Body" />
+                </Frame>
+                <Label Text="Publisher"  Margin="55,0"
+                TextColor="White"
+                FontSize="Subtitle" />
+                                    <Frame Margin="20,0,20,0" CornerRadius="130" BackgroundColor="#FF8F00">
+                <Entry Text="{Binding PublisherId, Mode=TwoWay}" TextColor="White"
+                    PlaceholderColor="White"
+                    HeightRequest="39"
+                    FontSize="Body"/>
+                </Frame>
+                <Label Text="Category"  Margin="55,0"
+                TextColor="White"
+                FontSize="Subtitle" />
+                                        <Frame Margin="20,0,20,0" CornerRadius="130" BackgroundColor="#FF8F00">
+                <Entry Text="{Binding CategoryId, Mode=TwoWay}" TextColor="White"
+                    PlaceholderColor="White"
+                    HeightRequest="39"
+                    FontSize="Body" />
+                </Frame>
                 <Label 
                         Text="Book Photo"
-                        Grid.Row="4"
-                        HorizontalOptions="Center"></Label>
+                        HorizontalOptions="Center"
+                     Margin="55,0"
+                TextColor="White"
+                FontSize="Subtitle"></Label>
                 <Image Source="{Binding ImageSource}"
-                           Grid.Row="5"
                            Margin="20,10,20,10"/>
                 <Button 
                         Text="TakePicture" 
                         Command="{Binding TakePicture}"
-                        Grid.Row="6"
-                        VerticalOptions="Center">
+                        VerticalOptions="Center"
+                    BackgroundColor="#FF8F00" 
+                        TextColor="white" 
+                        FontSize="Subtitle">
                 </Button>
-                <StackLayout Orientation="Horizontal">
-                    <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
-                    <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>
+                <StackLayout Orientation="Horizontal" BackgroundColor="#616161">
+                    <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand" BackgroundColor="#FF8F00" 
+                        TextColor="white" 
+                        FontSize="Subtitle"></Button>
+                    <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand" BackgroundColor="#FF8F00" 
+                        TextColor="white" 
+                        FontSize="Subtitle"></Button>
                 </StackLayout>
             </StackLayout>
         </ScrollView>

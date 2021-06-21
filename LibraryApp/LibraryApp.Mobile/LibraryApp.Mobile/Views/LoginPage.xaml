@@ -13,7 +13,7 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout BackgroundColor="#616161" >
-                <StackLayout>
+                <StackLayout  Margin="20,0,20,20">
                     <Label Text="Przeglądaj bez logowania" FontSize="Title" TextColor="White"/>
                     <Button 
                         Text="Preglądaj" 
@@ -22,15 +22,16 @@
                         TextColor="white" 
                         FontSize="Subtitle"
                         CornerRadius="35"
-                        WidthRequest="100"></Button>
+                        WidthRequest="80"
+                        HeightRequest="50"></Button>
                 </StackLayout>
                 <StackLayout Margin="20,0,0,10">
                     <Label 
-                        Text="Hello"
+                        Text="Witaj"
                         TextColor="White"
                         FontSize="Title"/>
                     <Label 
-                        Text="Login to your account"
+                        Text="Zaloguj sie na swoje konto"
                         TextColor="White"
                         FontSize="Subtitle"/>
                 </StackLayout>

@@ -13,16 +13,27 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Spacing="3" Padding="15">
-                <Label Text="Add New Publisher"
-                        VerticalOptions="CenterAndExpand" 
-                        HorizontalOptions="CenterAndExpand" />
-                <Label Text="Publisher Name" FontSize="Medium" />
-                <Entry Text="{Binding PublisherName, Mode=TwoWay}" FontSize="Medium" />
-                <Label Text="Publisher Description" FontSize="Medium" />
-                <Editor Text="{Binding PublisherDesription, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
+            <StackLayout Spacing="3" Padding="15" BackgroundColor="#616161">
+                <Label Text="Publisher Name" Margin="55,0"
+                TextColor="White"
+                FontSize="Subtitle" />
+                <Entry Text="{Binding PublisherName, Mode=TwoWay}" TextColor="White"
+                    PlaceholderColor="White"
+                    HeightRequest="39"
+                    FontSize="Body" />
+                <Label Text="Publisher Description" Margin="55,0"
+                TextColor="White"
+                FontSize="Subtitle" />
+                <Entry Text="{Binding PublisherDesription, Mode=TwoWay}" TextColor="White"
+                    PlaceholderColor="White"
+                    HeightRequest="39"
+                    FontSize="Body" />
                 <StackLayout Orientation="Horizontal">
-                    <Button Text="Save" Command="{Binding SavePublisherCommand}" HorizontalOptions="FillAndExpand"></Button>
+                    <Button Text="Save" Command="{Binding SavePublisherCommand}" HorizontalOptions="FillAndExpand" BackgroundColor="#FF8F00" 
+                        CornerRadius="35"
+                        TextColor="white" 
+                        FontSize="Subtitle"
+                        WidthRequest="100"></Button>
                 </StackLayout>
             </StackLayout>
         </ScrollView>

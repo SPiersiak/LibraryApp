@@ -8,16 +8,27 @@
         <vm:AddingDataViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout>
-                <StackLayout Orientation="Horizontal">
-                    <Button Text="Add Author" Command="{Binding AuthorPageCommand}" HorizontalOptions="FillAndExpand"></Button>
+        <ScrollView BackgroundColor="#616161">
+            <StackLayout VerticalOptions="Center"
+            BackgroundColor="#616161">
+                <StackLayout BackgroundColor="#616161">
+                    <Label Text="Bibliotekarzu, w tym miejscu możesz dodać nowego autora, wydawnictwo oraz kategorie."
+                           TextColor="White" FontSize="Large" Margin="20,20,20,20" HorizontalOptions="CenterAndExpand"></Label>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <Button Text="Add Category" Command="{Binding CategoryPageCommand}" HorizontalOptions="FillAndExpand"></Button>
+                    <Button Text="Add Author" Command="{Binding AuthorPageCommand}" HorizontalOptions="FillAndExpand" BackgroundColor="#FF8F00" 
+                        TextColor="white" 
+                        FontSize="Subtitle"></Button>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <Button Text="Add Publisher" Command="{Binding PublisherPageCommand}" HorizontalOptions="FillAndExpand"></Button>
+                <Button Text="Add Category" Command="{Binding CategoryPageCommand}" HorizontalOptions="FillAndExpand" BackgroundColor="#FF8F00" 
+                        TextColor="white" 
+                        FontSize="Subtitle"></Button>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                <Button Text="Add Publisher" Command="{Binding PublisherPageCommand}" HorizontalOptions="FillAndExpand" BackgroundColor="#FF8F00" 
+                        TextColor="white" 
+                        FontSize="Subtitle"></Button>
                 </StackLayout>
             </StackLayout>
         </ScrollView>

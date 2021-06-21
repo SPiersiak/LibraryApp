@@ -49,18 +49,17 @@ namespace LibraryApp.Mobile.ViewModels
             if(Role == "Anonnymous")
             {
                 FullName = "Anonimowy uzytkownik";
-                Text = "Jako anonimowy uzytkonik kontynuj z ograniczonymi możliwościami\n" +
-                    "Zapraszamy do przegladania zbiorów biblioteki";
+                Text = "Jako anonimowy użytkownik kontynuuj z ograniczonymi możliwościami. Zapraszamy do przeglądania zbiorów biblioteki.";
             }
             else if(Role == "Tak")
             {
                 //FullName = Settings.FirstName + " " + Settings.LastName;
-                Text = "Bibliotekarzu zapraszamy do zarządzania biblioteka";
+                Text = "Bibliotekarzu, zapraszamy do zarządzania biblioteka!";
             }
             else if (Role == "Nie")
             {
                 //FullName = Settings.FirstName + " " + Settings.LastName;
-                Text = "Cytelniku zapraszamy do korzystania z biblioteki";
+                Text = "Czytelniku zapraszamy do korzystania z biblioteki!";
             }
         }
         private async void Logout()

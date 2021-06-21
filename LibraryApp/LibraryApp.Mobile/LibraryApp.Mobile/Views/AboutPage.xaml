@@ -16,16 +16,17 @@
     </ContentPage.Resources>
 
     <ScrollView>
-        <StackLayout>
-            <Label Text="WITAJ" FontSize="Small"/>
-            <Label Text="{Binding FullName}" FontSize="Small"/>
-            <Label Text="{Binding Text}" FontSize="Small"/>
+        <StackLayout BackgroundColor="#616161">
+            <Label Text="Witaj" FontSize="30" HorizontalOptions="Center" Margin="20,20,20,20" TextColor="white"/>
+            <Label Text="{Binding FullName}" FontSize="Large" HorizontalOptions="Center" Margin="20,20,20,20" TextColor="White"/>
+            <Label Text="{Binding Text}" FontSize="Small" HorizontalOptions="CenterAndExpand" Margin="20,20,20,20" TextColor="White"/>
             <Button Text="Wyloguj" Command="{Binding LogoutCommand}"
                         BackgroundColor="#FF8F00" 
                         CornerRadius="35"
                         TextColor="white" 
                         FontSize="Subtitle"
-                        WidthRequest="100"></Button>
+                        WidthRequest="80"
+                        Margin="20,0,20,0"></Button>
         </StackLayout>
     </ScrollView>
 

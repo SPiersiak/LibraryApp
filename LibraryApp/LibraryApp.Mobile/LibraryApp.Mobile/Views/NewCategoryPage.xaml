@@ -13,16 +13,27 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Background="White" Spacing="3" Padding="15">
-                <Label Text="Add New Category"
-                        VerticalOptions="CenterAndExpand" 
-                        HorizontalOptions="CenterAndExpand" />
-                <Label Text="Category Name" FontSize="Medium" />
-                <Entry Text="{Binding CategoryName, Mode=TwoWay}" FontSize="Medium" />
-                <Label Text="Category Description" FontSize="Medium" />
-                <Editor Text="{Binding CategoryDescription, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
+            <StackLayout Background="White" Spacing="3" Padding="15" BackgroundColor="#616161">
+                <Label Text="Category Name" Margin="55,0"
+                TextColor="White"
+                FontSize="Subtitle"/>
+                <Entry Text="{Binding CategoryName, Mode=TwoWay}" TextColor="White"
+                    PlaceholderColor="White"
+                    HeightRequest="39"
+                    FontSize="Body" />
+                <Label Text="Category Description" Margin="55,0"
+                TextColor="White"
+                FontSize="Subtitle" />
+                <Entry Text="{Binding CategoryDescription, Mode=TwoWay}" TextColor="White"
+                    PlaceholderColor="White"
+                    HeightRequest="39"
+                    FontSize="Body" />
                 <StackLayout Orientation="Horizontal">
-                    <Button Text="Save" Command="{Binding SaveCategoryCommand}" HorizontalOptions="FillAndExpand"></Button>
+                    <Button Text="Save" Command="{Binding SaveCategoryCommand}" HorizontalOptions="FillAndExpand" BackgroundColor="#FF8F00" 
+                        CornerRadius="35"
+                        TextColor="white" 
+                        FontSize="Subtitle"
+                        WidthRequest="100"></Button>
                 </StackLayout>
             </StackLayout>
         </ScrollView>

@@ -13,20 +13,41 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Spacing="3" Padding="15">
-                <Label Text="Add New Author"
-                            VerticalOptions="CenterAndExpand" 
-                            HorizontalOptions="CenterAndExpand" />
-                <Label Text="Author First Name" FontSize="Medium" />
-                <Entry Text="{Binding AuthorFirstName, Mode=TwoWay}" FontSize="Medium" />
-                <Label Text="Author Last Name" FontSize="Medium" />
-                <Entry Text="{Binding AuthroLastName, Mode=TwoWay}" FontSize="Medium" />
-                <Label Text="Author Country" FontSize="Medium" />
-                <Entry Text="{Binding AuthorCountry, Mode=TwoWay}" FontSize="Medium" />
-                <Label Text="Author Birth Date" FontSize="Medium" />
-                <Entry Text="{Binding AuthroBirthDate, Mode=TwoWay}" FontSize="Medium" />
+            <StackLayout Spacing="3" Padding="15" BackgroundColor="#616161">
+                <Label Text="Author First Name" Margin="55,0"
+                TextColor="White"
+                FontSize="Subtitle" />
+                <Entry Text="{Binding AuthorFirstName, Mode=TwoWay}" TextColor="White"
+                    PlaceholderColor="White"
+                    HeightRequest="39"
+                    FontSize="Body" />
+                <Label Text="Author Last Name" Margin="55,0"
+                TextColor="White"
+                FontSize="Subtitle"/>
+                <Entry Text="{Binding AuthroLastName, Mode=TwoWay}" TextColor="White"
+                    PlaceholderColor="White"
+                    HeightRequest="39"
+                    FontSize="Body" />
+                <Label Text="Author Country" Margin="55,0"
+                TextColor="White"
+                FontSize="Subtitle" />
+                <Entry Text="{Binding AuthorCountry, Mode=TwoWay}" TextColor="White"
+                    PlaceholderColor="White"
+                    HeightRequest="39"
+                    FontSize="Body" />
+                <Label Text="Author Birth Date" Margin="55,0"
+                TextColor="White"
+                FontSize="Subtitle" />
+                <Entry Text="{Binding AuthroBirthDate, Mode=TwoWay}" TextColor="White"
+                    PlaceholderColor="White"
+                    HeightRequest="39"
+                    FontSize="Body" />
                 <StackLayout Orientation="Horizontal">
-                    <Button Text="Save" Command="{Binding SaveAuthorCommand}" HorizontalOptions="FillAndExpand"></Button>
+                    <Button Text="Save" Command="{Binding SaveAuthorCommand}" HorizontalOptions="FillAndExpand" BackgroundColor="#FF8F00" 
+                        CornerRadius="35"
+                        TextColor="white" 
+                        FontSize="Subtitle"
+                        WidthRequest="100"></Button>
                 </StackLayout>
             </StackLayout>
         </ScrollView>
