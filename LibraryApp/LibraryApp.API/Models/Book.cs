@@ -33,7 +33,8 @@ namespace LibraryApp.API.Models
         public long CategoryId { get; set; }
         public Category Category { get; set; }
 
-        public virtual ICollection<CopiesOfTheBook> CopiesOfTheBooks{ get; set; }
+        public virtual ICollection<Reservation> Reservations { get; set; }
+        public virtual ICollection<Borrowed> Borroweds { get; set; }
 
     }
 }

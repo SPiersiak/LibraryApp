@@ -15,9 +15,9 @@ namespace LibraryApp.API.Models
         public TimeSpan BorrowEnd { get; set; }
         public int Prolongation { get; set; }
 
-        [ForeignKey("CopiesOfTheBook")]
-        public long CopiesId { get; set; }
-        public CopiesOfTheBook CopiesOfTheBook { get; set; }
+        [ForeignKey("Book")]
+        public long BookId { get; set; }
+        public Book Book { get; set; }
 
         [ForeignKey("User")]
         public long UserId { get; set; }

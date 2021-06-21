@@ -11,7 +11,7 @@ namespace LibraryApp.API.Data
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Book> Books { get; set; }
-        public DbSet<CopiesOfTheBook> CopiesOfTheBooks { get; set; }
+        //public DbSet<CopiesOfTheBook> CopiesOfTheBooks { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<Publisher> Publishers { get; set; }
         public DbSet<Category> Categories { get; set; }
