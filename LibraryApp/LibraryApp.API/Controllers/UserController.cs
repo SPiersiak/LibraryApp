@@ -10,17 +10,28 @@ using System.Threading.Tasks;
 
 namespace LibraryApp.API.Controllers
 {
+    /// <summary>
+    /// kontroler pozwalajacy na dostep do zasobow bazy dancyh przechowujacych uzytkownika
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
     {
         private readonly IUserRepository _userRepository;
-
+        /// <summary>
+        /// konstruktor inicjalizujacy Dependency Incjection dla userrepository
+        /// </summary>
+        /// <param name="userRepository">powiazanie z interfejsem userRepository</param>
         public UserController(IUserRepository userRepository)
         {
             _userRepository = userRepository;
         }
 
+        /// <summary>
+        /// metoda aktualizujaca dane uzytkownika
+        /// </summary>
+        /// <param name="user"> model uzytkownika zawierajacy zaktualizwane dane</param>
+        /// <returns>zwraca ok jezeli dane zostale zaktualizowane, jezeli nie BadRequest</returns>
         [HttpPut]
         public IActionResult UpdateUser(UserDto user)
         {
@@ -43,6 +54,11 @@ namespace LibraryApp.API.Controllers
                 return BadRequest();
         }
 
+        /// <summary>
+        /// metoda wyszukujaca rezerwacje uzytkownika
+        /// </summary>
+        /// <param name="id">zmienna typu long zawierajaca id uzytkownika</param>
+        /// <returns>zwraca liste rezerwacji danego uzytkownika</returns>
         [HttpGet]
         public ActionResult<IEnumerable<Reservation>> GetReservation(long id)
         {

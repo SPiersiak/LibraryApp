@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace LibraryApp.API.Models
 {
+    /// <summary>
+    /// model kategori ktory odwzorowuje jego tabele w bazie danych
+    /// </summary>
     public class Category
     {
         [Key]

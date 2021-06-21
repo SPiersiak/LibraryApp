@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace LibraryApp.API.Repositories.LoginRegister
 {
+    /// <summary>
+    /// klasa obslugujaca logoawnie i rejestracje
+    /// </summary>
     public class LoginRegisterRepository : ILoginRegisterRepository
     {
         private readonly LibraryDbContext _libraryDbContext;
@@ -18,6 +21,12 @@ namespace LibraryApp.API.Repositories.LoginRegister
             _libraryDbContext = libraryDbContext;
         }
 
+        /// <summary>
+        /// metoda sprawdzajaca czy dane podane podczas logowanie sa poprawne
+        /// </summary>
+        /// <param name="userName">zmiena ciagu znaków zawierajaca login</param>
+        /// <param name="password">zmienna ciagu znakow zawierajaca hasło</param>
+        /// <returns>zwraca usera z danym jezeli dane były poprawne</returns>
         public async Task<User> LoginAsync(string userName, string password)
         {
             var user = await _libraryDbContext.Users.Where(x => x.UserName.Equals(userName)).FirstOrDefaultAsync();
@@ -48,7 +57,15 @@ namespace LibraryApp.API.Repositories.LoginRegister
                 IsEmployee = user.IsEmployee
             };
         }
-
+        /// <summary>
+        /// metoda służaca do rejestracji uzytkownika czyli dodania go do bazy danych
+        /// </summary>
+        /// <param name="firstName">imie nowego uzytkownika</param>
+        /// <param name="lastName">nawisko nowego uzytkownika  </param>
+        /// <param name="email">email nowego uzytkownika</param>
+        /// <param name="userName">login nowego uzytkownika</param>
+        /// <param name="password">haslo nowego uzytkownika</param>
+        /// <returns>zwraca true jezeli dodanie nowego uzytkownika sie powiodło, jezli nie false</returns>
         public async Task<bool> RegisterAsync(string firstName, string lastName, string email, string userName, string password)
         {
             var user = await _libraryDbContext.Users.Where(x => x.UserName == userName).FirstOrDefaultAsync();

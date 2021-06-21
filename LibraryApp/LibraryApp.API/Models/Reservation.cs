@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace LibraryApp.API.Models
 {
+    /// <summary>
+    /// model rezerwacji ktory odwzorowuje jego tabele w bazie danych
+    /// </summary>
     public class Reservation
     {
         [Key]

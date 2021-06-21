@@ -10,17 +10,27 @@ using System.Threading.Tasks;
 
 namespace LibraryApp.API.Controllers
 {
+    /// <summary>
+    /// kontroler pozwalajacy na dodawanie i wybieranie autora
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class AuthorController : ControllerBase
     {
         private readonly IAuthorRepository _authorRepository;
-
+        /// <summary>
+        /// konstruktor inicjalizujacy Dependency Incjection dla authorrepository
+        /// </summary>
+        /// <param name="authorRepository">powiazanie z interfejsem authorRepository</param>
         public AuthorController(IAuthorRepository authorRepository)
         {
             _authorRepository = authorRepository;
         }
-
+        /// <summary>
+        /// metoda dodajaca nowego autora do bazy danych
+        /// </summary>
+        /// <param name="author">model autora jaki znajduje sie w bazie danych</param>
+        /// <returns>ok jezeli autor został poprawnie dodany do bay danych, w innym przypadku BadRequest</returns>
         [HttpPut]
         public async Task<IActionResult> AddNewAuthor([FromBody] AuthorDto author)
         {
@@ -46,6 +56,11 @@ namespace LibraryApp.API.Controllers
             }
         }
 
+        /// <summary>
+        /// metoda wyszukujaca i zwracajacego autora po id
+        /// </summary>
+        /// <param name="id">zmienna typu long zawierajaca id autora</param>
+        /// <returns>zostanie zwrocony obiekt autora znajdujacy sie w bazie danych</returns>
         [HttpGet("{id}")]
         public ActionResult<Author> GetAuthorById(long id)
         {

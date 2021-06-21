@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace LibraryApp.API.Data
 {
+    /// <summary>
+    /// klasa zawierajaca polaczenie do bazy danych jak również wszystkie klasy ktore maja byc odwzorowane w bazie danych
+    /// zostało zastosowane podejscie Code-First, uzywajac migracji
+    /// </summary>
     public class LibraryDbContext : DbContext
     {
         public DbSet<User> Users { get; set; }

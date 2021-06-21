@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace LibraryApp.API.Models
 {
+    /// <summary>
+    /// model uzytkownika ktory odwzorowuje jego tabele w bazie danych
+    /// </summary>
     public class User
     {
         [Key]

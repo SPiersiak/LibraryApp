@@ -10,17 +10,28 @@ using System.Threading.Tasks;
 
 namespace LibraryApp.API.Controllers
 {
+    /// <summary>
+    /// Controler dajacy dostęp zewnetrzym aplikacjom do bazy danych, służy do autoryzacji uzytkownika(logowanie, rejestracja)
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class AuthenticationController : ControllerBase
     {
         private readonly ILoginRegisterRepository _loginRegisterRepository;
-
+        /// <summary>
+        /// konstruktor inicjalizujący Dependency Incjection do repozytorium
+        /// </summary>
+        /// <param name="loginRegisterRepository">interfejst do repozytorium opisujacy operacja na bazie danych</param>
         public AuthenticationController(ILoginRegisterRepository loginRegisterRepository)
         {
             _loginRegisterRepository = loginRegisterRepository;
         }
-       
+
+       /// <summary>
+       /// metoda dodajacego nowego uzytkownika do bazy danych, obsluguje rejestracje w aplikacji
+       /// </summary>
+       /// <param name="registerDto">jak parametr przyjmuje imie, nazwisko, email, hasło, username</param>
+       /// <returns>zwraca ok jezeli uzytkownik zostła stworzony</returns>
         [HttpPut]
         public async Task<IActionResult> Register([FromBody] RegisterDto registerDto)
         {
@@ -37,7 +48,11 @@ namespace LibraryApp.API.Controllers
             }
             return Ok("utworzono nowego uzytkownika");
         }
-
+        /// <summary>
+        /// metoda obsługujaca logowanie do aplikacji, sprwdza czy podany login i haslo sa poprawne
+        /// </summary>
+        /// <param name="loginDto">jako parametr przyjmuje login i haslo podane przez uzytkownika i sprawdza ich poprawność</param>
+        /// <returns>zwraca ok z modelem nowego uzytkownika jezeli dane byly prawidlowe</returns>
         [HttpPost]
         public async Task<IActionResult> Login([FromBody] LoginDto loginDto)
         {
