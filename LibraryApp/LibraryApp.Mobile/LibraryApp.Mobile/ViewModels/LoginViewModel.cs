@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
 using System.Threading.Tasks;
+using LibraryApp.Mobile.Models;
 
 namespace LibraryApp.Mobile.ViewModels
 {
@@ -52,9 +53,23 @@ namespace LibraryApp.Mobile.ViewModels
             if(result == true)
             {
                 IsBusy = false;
-                //MessagingCenter.Send<LoginViewModel>(this,
-                //(Settings.Role == "Tak") ? "Tak" : "Nie");
+                MessagingCenter.Send<LoginViewModel>(this,
+                (Settings.Role == "Tak") ? "Tak" : "Nie");
+                var user = Settings.FirstName + " " +Settings.LastName;
+                MessagingCenter.Send<LoginViewModel,string>(this, "name",
+                user);
+                MessagingCenter.Send<LoginViewModel, string>(this, "role",
+                Settings.Role);
+                var userdate = new User() {
+                    FirstName = Settings.FirstName, 
+                    LastName = Settings.LastName,
+                    Email = Settings.Email,
+                    Password = Settings.Password };
+                MessagingCenter.Send<LoginViewModel, User>(this, "message",
+                 userdate);
                 var x = new AppViewModel();
+                var z = new EditUserViewModel();
+                var y = new AboutViewModel();
                 //await Application.Current.MainPage.DisplayAlert("Sukces", "Dane Porawne", "OK");
                 //await Task.Delay(400);
                 await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
@@ -72,6 +87,11 @@ namespace LibraryApp.Mobile.ViewModels
         private async void Anonnymous()
         {
             Settings.Role = "Anonnymous";
+            MessagingCenter.Send<LoginViewModel>(this,
+                (Settings.Role == "Tak") ? "Tak" : "Anonnymous");
+            MessagingCenter.Send<LoginViewModel, string>(this, "role",
+                Settings.Role);
+            var x = new AppViewModel();
             await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
         }
     }

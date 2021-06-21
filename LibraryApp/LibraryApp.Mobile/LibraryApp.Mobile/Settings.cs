@@ -18,16 +18,20 @@ namespace LibraryApp.Mobile
                 return CrossSettings.Current;
             }
         }
+        static Settings()
+        {
 
-        #region Setting Constants
-        private const string UserIdKey = "UserId_Key";
-        private const string RoleKey = "Role_Key";
-        private const string FirstNameKey = "FirstName_Key";
-        private const string LastNameKey = "LastName_Key";
-        private const string UserNameKey = "UserName_Key";
-        private const string EmailKey = "Email_Key";
-        private const string PasswordKey = "Password_Key";
-        #endregion
+        }
+
+        //#region Setting Constants
+        private static string UserIdKey = "UserId_Key";
+        private static string RoleKey = "Role_Key";
+        private static string FirstNameKey = "FirstName_Key";
+        private static string LastNameKey = "LastName_Key";
+        private static string UserNameKey = "UserName_Key";
+        private static string EmailKey = "Email_Key";
+        private static string PasswordKey = "Password_Key";
+        //#endregion
 
         public static string Role
         {

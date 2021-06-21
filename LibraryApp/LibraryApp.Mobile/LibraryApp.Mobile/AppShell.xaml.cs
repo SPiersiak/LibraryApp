@@ -12,10 +12,10 @@ namespace LibraryApp.Mobile
         {
             InitializeComponent();
             BindingContext = new AppViewModel();
-            Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
+            //Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
             Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
             Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
-            Routing.RegisterRoute(nameof(AddingDataPage), typeof(AddingDataPage));
+            //Routing.RegisterRoute(nameof(AddingDataPage), typeof(AddingDataPage));
             Routing.RegisterRoute(nameof(RegisterPage), typeof(RegisterPage));
             Routing.RegisterRoute(nameof(NewAuthorPage), typeof(NewAuthorPage));
             Routing.RegisterRoute(nameof(NewCategoryPage), typeof(NewCategoryPage));
