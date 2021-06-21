@@ -32,12 +32,19 @@ namespace LibraryApp.Mobile.ViewModels
         private string date;
         private string reservationInfo;
         private bool doReservation;
+        private string prolongationInfo;
+        private bool doProlangate;
+        private long reservationId;
         public long Id { get; set; }
         public ImageSource _imageSource = "";
         public Command ReservationCommand { get; }
+        public Command ProlongateCommand { get; }
+        public Command EndReservationCommand { get; }
         public ItemDetailViewModel()
         {
             ReservationCommand = new Command(NewReservation);
+            ProlongateCommand = new Command(AddProlongate);
+            EndReservationCommand = new Command(EndReservation);
         }
         public string Text
         {
@@ -85,6 +92,16 @@ namespace LibraryApp.Mobile.ViewModels
             get => doReservation;
             set => SetProperty(ref doReservation, value);
         }
+        public string ProlongationInfo
+        {
+            get => prolongationInfo;
+            set => SetProperty(ref prolongationInfo, value);
+        }
+        public bool DoProlongate
+        {
+            get => doProlangate;
+            set => SetProperty(ref doProlangate, value);
+        }
 
         public long BookId
         {
@@ -131,15 +148,43 @@ namespace LibraryApp.Mobile.ViewModels
                 Date = item.ReleaseDate.ToString();
                 ImageSource = Xamarin.Forms.ImageSource.FromStream(
                     () => new MemoryStream(Convert.FromBase64String(Convert.ToBase64String(item.Image))));
-                if (rese == null)
+                if(Settings.Role == "Anonnymous")
                 {
-                    ReservationInfo = "Ta książka nie jest zarezerwowana";
-                    DoReservation = true;
+                    DoProlongate = false;
+                    DoReservation = false;
+
                 }
                 else
                 {
-                    ReservationInfo = "Ta książka jest zarezerwowana";
-                    DoReservation = false;
+                    if (rese == null)
+                    {
+                        ReservationInfo = "Ta książka nie jest zarezerwowana";
+                        DoReservation = true;
+                    }
+                    else
+                    {
+                        var day = rese.ReservationEnd - DateTime.Now;
+                        if (rese.UserId == long.Parse(Settings.UserId) && day.Days < 2)
+                        {
+                            ProlongationInfo = "Ta książka jest zarezerwowana przez ciebie lecz nie można jej juz przedłuzyć " +
+                                "ponieważ za 2 dni konczy sie rezerwacja";
+                            DoProlongate = false;
+                        }
+                        else if (rese.UserId == long.Parse(Settings.UserId) && day.Days > 2)
+                        {
+                            var data = rese.ReservationEnd.ToString("yyyy-MM-dd HH:mm:ss");
+                            ProlongationInfo = "Ta książka jest zarezerwowana przez ciebie i istnieje " +
+                                "możliwość przedłużenia rezerwacji\n" +
+                                "Koniec rezerwacji: " + data; ;
+                            reservationId = rese.ReservationId;
+                            DoProlongate = true;
+                        }
+                        else
+                        {
+                            ReservationInfo = "Ta książka jest zarezerwowana";
+                        }
+                        DoReservation = false;
+                    }
                 }
             }
             catch (Exception)
@@ -155,6 +200,14 @@ namespace LibraryApp.Mobile.ViewModels
                 UserId = long.Parse(Settings.UserId)
             };
             await _reservationService.AddNewReservation(reservationDto);
+        }
+        private async void AddProlongate()
+        {
+            await _reservationService.BookProlongate(reservationId);
+        }
+        private async void EndReservation()
+        {
+            await _reservationService.EndReservation(reservationId);
         }
     }
 }

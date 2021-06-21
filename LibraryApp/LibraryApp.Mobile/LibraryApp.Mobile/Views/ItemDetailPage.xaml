@@ -27,7 +27,7 @@
                            Margin="20,10,20,10"
                            HeightRequest="400" 
                            WidthRequest="400"/>
-            <Label Text="{Binding ReservationInfo}" FontSize="Small"/>
+            <Label Text="{Binding ReservationInfo}" IsVisible="{Binding DoReservation}" FontSize="Small"/>
             <Button Text="Rezerwacja" Command="{Binding ReservationCommand}"
                         BackgroundColor="#FF8F00" 
                         CornerRadius="35"
@@ -35,6 +35,22 @@
                         FontSize="Subtitle"
                         WidthRequest="100"
                         IsVisible="{Binding DoReservation}"></Button>
+            <Label Text="{Binding ProlongationInfo}" IsVisible="{Binding DoProlongate}" FontSize="Small"/>
+            <Button Text="Przedłuż" Command="{Binding ProlongateCommand}"
+                        BackgroundColor="#FF8F00" 
+                        CornerRadius="35"
+                        TextColor="white" 
+                        FontSize="Subtitle"
+                        WidthRequest="100"
+                        IsVisible="{Binding DoProlongate}"></Button>
+            <Label Text="Zakończ rezerwacje" IsVisible="{Binding DoProlongate}" FontSize="Small" />
+            <Button Text="Zakończ" Command="{Binding EndReservationCommand}"
+                        BackgroundColor="#FF8F00" 
+                        CornerRadius="35"
+                        TextColor="white" 
+                        FontSize="Subtitle"
+                        WidthRequest="100"
+                        IsVisible="{Binding DoProlongate}"></Button>
         </StackLayout>
     </ScrollView>
 
