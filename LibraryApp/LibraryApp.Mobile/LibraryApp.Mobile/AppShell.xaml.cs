@@ -21,6 +21,7 @@ namespace LibraryApp.Mobile
             Routing.RegisterRoute(nameof(NewCategoryPage), typeof(NewCategoryPage));
             Routing.RegisterRoute(nameof(NewPublisherPage), typeof(NewPublisherPage));
             Routing.RegisterRoute(nameof(EditUserPage), typeof(EditUserPage));
+            Routing.RegisterRoute(nameof(HistoryReservationPage), typeof(HistoryReservationPage));
         }
 
     }

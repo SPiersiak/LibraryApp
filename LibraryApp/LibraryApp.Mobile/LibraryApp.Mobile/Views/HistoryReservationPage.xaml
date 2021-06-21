@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LibraryApp.Mobile.Views.HistoryReservationPage"
+             xmlns:local="clr-namespace:LibraryApp.Mobile.ViewModels"
+             xmlns:model="clr-namespace:LibraryApp.Mobile.ViewModels.DTO">
+    <RefreshView x:DataType="local:HistoryReservationViewModel" Command="{Binding LoadReservationCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+        <StackLayout>
+            <CollectionView x:Name="ItemsListView"
+                    ItemsSource="{Binding Reservations}"
+                    SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="10" x:DataType="model:ReservationBookDto">
+                            <Label Text="{Binding ReservationStart}" 
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16" />
+                            <Label Text="{Binding ReservationEnd}" 
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16" />
+                            <Label Text="{Binding BookName}" 
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </RefreshView>
+</ContentPage>
