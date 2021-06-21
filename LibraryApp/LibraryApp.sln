@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryApp.API", "LibraryAp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryApp.Mobile.Android", "LibraryApp.Mobile\LibraryApp.Mobile.Android\LibraryApp.Mobile.Android.csproj", "{66639C8A-D68F-4E44-93F4-711848CFB390}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryApp.Mobile", "LibraryApp.Mobile\LibraryApp.Mobile\LibraryApp.Mobile.csproj", "{ADA11197-D74A-4F9E-A1EA-C33E93567615}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryApp.Mobile", "LibraryApp.Mobile\LibraryApp.Mobile\LibraryApp.Mobile.csproj", "{ADA11197-D74A-4F9E-A1EA-C33E93567615}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryApp.Tests", "LibraryApp.Tests\LibraryApp.Tests.csproj", "{46659FDE-DD01-4115-BF1E-F8AEB5BFE620}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{ADA11197-D74A-4F9E-A1EA-C33E93567615}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADA11197-D74A-4F9E-A1EA-C33E93567615}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADA11197-D74A-4F9E-A1EA-C33E93567615}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46659FDE-DD01-4115-BF1E-F8AEB5BFE620}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46659FDE-DD01-4115-BF1E-F8AEB5BFE620}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46659FDE-DD01-4115-BF1E-F8AEB5BFE620}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46659FDE-DD01-4115-BF1E-F8AEB5BFE620}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

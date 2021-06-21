@@ -41,6 +41,17 @@ namespace LibraryApp.Mobile.ViewModels
             return !String.IsNullOrWhiteSpace(loginName)
                 && !String.IsNullOrWhiteSpace(password);
         }
+        public bool ValidState(string login, string password)
+        {
+            if(String.IsNullOrEmpty(login) || String.IsNullOrEmpty(password))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
         private async void LogIn()
         {
             IsBusy = true;
