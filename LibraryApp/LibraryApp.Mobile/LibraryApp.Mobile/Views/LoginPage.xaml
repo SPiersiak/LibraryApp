@@ -14,7 +14,15 @@
         <ScrollView>
             <StackLayout BackgroundColor="#616161" >
                 <StackLayout>
-                    <Image Source="mainLogo.png" HeightRequest="120" WidthRequest="120"/>
+                    <Label Text="Przeglądaj bez logowania" FontSize="Title" TextColor="White"/>
+                    <Button 
+                        Text="Preglądaj" 
+                        Command="{Binding AnonnymousCommand}" 
+                        BackgroundColor="#FF8F00" 
+                        TextColor="white" 
+                        FontSize="Subtitle"
+                        CornerRadius="35"
+                        WidthRequest="100"></Button>
                 </StackLayout>
                 <StackLayout Margin="20,0,0,10">
                     <Label 
@@ -63,7 +71,6 @@
                     <Button 
                         Text="Register" 
                         Command="{Binding RegisterCommand}" 
-                        Clicked="RegistrationButton_Clicked" 
                         BackgroundColor="#FF8F00" 
                         TextColor="white" 
                         FontSize="Subtitle"

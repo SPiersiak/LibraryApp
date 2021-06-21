@@ -9,7 +9,7 @@ namespace LibraryApp.Mobile
 {
     public static class Settings
     {
-        public const string Server_Endpoint = "https://192.168.0.107:45457/api/";
+        public const string Server_Endpoint = "https://192.168.0.107:45455/api/";
 
         private static ISettings AppSettings
         {

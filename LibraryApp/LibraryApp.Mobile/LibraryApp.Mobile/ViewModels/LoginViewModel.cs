@@ -14,12 +14,14 @@ namespace LibraryApp.Mobile.ViewModels
         public IAuthenticationService _authenticationService => DependencyService.Get<IAuthenticationService>();
         public Command LoginCommand { get; }
         public Command RegisterCommand { get; }
+        public Command AnonnymousCommand { get; }
         private string loginName = "";
         private string password = "";
         public LoginViewModel()
         {
             LoginCommand = new Command(LogIn,ValidateSave);
             RegisterCommand = new Command(Register);
+            AnonnymousCommand = new Command(Anonnymous);
             this.PropertyChanged +=
                 (_, __) => LoginCommand.ChangeCanExecute();
         }
@@ -50,6 +52,9 @@ namespace LibraryApp.Mobile.ViewModels
             if(result == true)
             {
                 IsBusy = false;
+                //MessagingCenter.Send<LoginViewModel>(this,
+                //(Settings.Role == "Tak") ? "Tak" : "Nie");
+                var x = new AppViewModel();
                 //await Application.Current.MainPage.DisplayAlert("Sukces", "Dane Porawne", "OK");
                 //await Task.Delay(400);
                 await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
@@ -64,6 +69,10 @@ namespace LibraryApp.Mobile.ViewModels
         {
             await Shell.Current.GoToAsync($"{nameof(RegisterPage)}");
         }
-
+        private async void Anonnymous()
+        {
+            Settings.Role = "Anonnymous";
+            await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
+        }
     }
 }
