@@ -14,14 +14,14 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Spacing="3" Padding="15" BackgroundColor="#616161">
-                <Label Text="Publisher Name" Margin="55,0"
+                <Label Text="Nazwa Wydanicta" Margin="55,0"
                 TextColor="White"
                 FontSize="Subtitle" />
                 <Entry Text="{Binding PublisherName, Mode=TwoWay}" TextColor="White"
                     PlaceholderColor="White"
                     HeightRequest="39"
                     FontSize="Body" />
-                <Label Text="Publisher Description" Margin="55,0"
+                <Label Text="Opis" Margin="55,0"
                 TextColor="White"
                 FontSize="Subtitle" />
                 <Entry Text="{Binding PublisherDesription, Mode=TwoWay}" TextColor="White"
@@ -29,7 +29,7 @@
                     HeightRequest="39"
                     FontSize="Body" />
                 <StackLayout Orientation="Horizontal">
-                    <Button Text="Save" Command="{Binding SavePublisherCommand}" HorizontalOptions="FillAndExpand" BackgroundColor="#FF8F00" 
+                    <Button Text="Zapisz" Command="{Binding SavePublisherCommand}" HorizontalOptions="FillAndExpand" BackgroundColor="#FF8F00" 
                         CornerRadius="35"
                         TextColor="white" 
                         FontSize="Subtitle"

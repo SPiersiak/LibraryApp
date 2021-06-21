@@ -27,7 +27,7 @@
             <ScrollView  Grid.Row = "1" Grid.ColumnSpan="2">
                 <StackLayout>
                     <Label 
-                            Text="First Name"
+                            Text="Imie"
                             Margin="55,0"
                             TextColor="White"
                             FontSize="Subtitle"></Label>
@@ -39,7 +39,7 @@
                                HeightRequest="39"></Entry>
                     </Frame>
                     <Label 
-                        Text="Last Name"
+                        Text="Nazwisko"
                         Margin="55,0"
                         TextColor="White"
                         FontSize="Subtitle"></Label>
@@ -75,7 +75,7 @@
                                HeightRequest="39"></Entry>
                     </Frame>
                     <Label 
-                        Text="Password"
+                        Text="Hasło"
                         Margin="55,0"
                         TextColor="White"
                         FontSize="Subtitle"></Label>
@@ -91,7 +91,7 @@
             </ScrollView>
 
             <Button 
-                Text="Cancel"
+                Text="Anuluj"
                 Grid.Row = "2" 
                 Grid.Column ="0"
                 Clicked="Cancel_Clicked"
@@ -101,7 +101,7 @@
                 FontSize="Subtitle"
                 Margin="10,0,0,5"></Button>
             <Button 
-                Text="Register" 
+                Text="Zarejestruj" 
                 Grid.Row = "2" 
                 Grid.Column="1" 
                 Command="{Binding RegisterCommand}"

@@ -12,16 +12,16 @@
         <ToolbarItem Text="Cancel" Command="{Binding CancelCommand}" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <ScrollView>
+        <ScrollView BackgroundColor="#616161">
             <StackLayout Background="White" Spacing="3" Padding="15" BackgroundColor="#616161">
-                <Label Text="Category Name" Margin="55,0"
+                <Label Text="Nazwa Kategori" Margin="55,0"
                 TextColor="White"
                 FontSize="Subtitle"/>
                 <Entry Text="{Binding CategoryName, Mode=TwoWay}" TextColor="White"
                     PlaceholderColor="White"
                     HeightRequest="39"
                     FontSize="Body" />
-                <Label Text="Category Description" Margin="55,0"
+                <Label Text="Opis" Margin="55,0"
                 TextColor="White"
                 FontSize="Subtitle" />
                 <Entry Text="{Binding CategoryDescription, Mode=TwoWay}" TextColor="White"
@@ -29,7 +29,7 @@
                     HeightRequest="39"
                     FontSize="Body" />
                 <StackLayout Orientation="Horizontal">
-                    <Button Text="Save" Command="{Binding SaveCategoryCommand}" HorizontalOptions="FillAndExpand" BackgroundColor="#FF8F00" 
+                    <Button Text="Zapisz" Command="{Binding SaveCategoryCommand}" HorizontalOptions="FillAndExpand" BackgroundColor="#FF8F00" 
                         CornerRadius="35"
                         TextColor="white" 
                         FontSize="Subtitle"

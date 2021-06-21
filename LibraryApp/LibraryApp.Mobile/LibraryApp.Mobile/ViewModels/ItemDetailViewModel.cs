@@ -35,6 +35,7 @@ namespace LibraryApp.Mobile.ViewModels
         private string prolongationInfo;
         private bool doProlangate;
         private long reservationId;
+        private bool resInfo;
         public long Id { get; set; }
         public ImageSource _imageSource = "";
         public Command ReservationCommand { get; }
@@ -102,6 +103,11 @@ namespace LibraryApp.Mobile.ViewModels
             get => doProlangate;
             set => SetProperty(ref doProlangate, value);
         }
+        public bool ResInfo
+        {
+            get => resInfo;
+            set => SetProperty(ref resInfo, value);
+        }
 
         public long BookId
         {
@@ -152,12 +158,14 @@ namespace LibraryApp.Mobile.ViewModels
                 {
                     DoProlongate = false;
                     DoReservation = false;
+                    ResInfo = false;
 
                 }
                 else
                 {
                     if (rese == null)
                     {
+                        ResInfo = true;
                         ReservationInfo = "Ta książka nie jest zarezerwowana";
                         DoReservation = true;
                     }
@@ -169,6 +177,7 @@ namespace LibraryApp.Mobile.ViewModels
                             ProlongationInfo = "Ta książka jest zarezerwowana przez ciebie lecz nie można jej juz przedłuzyć " +
                                 "ponieważ za 2 dni konczy sie rezerwacja";
                             DoProlongate = false;
+                            ResInfo = false;
                         }
                         else if (rese.UserId == long.Parse(Settings.UserId) && day.Days > 2)
                         {
@@ -178,12 +187,15 @@ namespace LibraryApp.Mobile.ViewModels
                                 "Koniec rezerwacji: " + data; ;
                             reservationId = rese.ReservationId;
                             DoProlongate = true;
+                            ResInfo = false;
                         }
                         else
                         {
                             ReservationInfo = "Ta książka jest zarezerwowana";
+                            ResInfo = true;
+                            DoReservation = false;
                         }
-                        DoReservation = false;
+                        //DoReservation = false;
                     }
                 }
             }

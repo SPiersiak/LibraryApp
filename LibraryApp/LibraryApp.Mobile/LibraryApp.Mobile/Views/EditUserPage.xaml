@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LibraryApp.Mobile.Views.EditUserPage"
              xmlns:vm="clr-namespace:LibraryApp.Mobile.ViewModels"
-             Title="Edit User Data">
+             Title="Edycja twoich danych">
 
     <ContentPage.BindingContext>
         <vm:EditUserViewModel/>
@@ -14,7 +14,7 @@
             VerticalOptions="Center"
             BackgroundColor="#616161">
                 <Label 
-                Text="First Name"
+                Text="Imie"
                 Margin="55,0"
                 TextColor="White"
                 FontSize="Subtitle"></Label>
@@ -28,7 +28,7 @@
                     FontSize="Body"></Entry>
                 </Frame>
                 <Label 
-                Text="Last Name"
+                Text="Nazwisko"
                 Margin="55,0"
                 TextColor="White"
                 FontSize="Subtitle"></Label>
@@ -56,7 +56,7 @@
                     FontSize="Body"></Entry>
                 </Frame>
                 <Label 
-                Text="Password"
+                Text="Hasło"
                 Margin="55,0"
                 TextColor="White"
                 FontSize="Subtitle"></Label>
@@ -71,7 +71,7 @@
                     FontSize="Body"></Entry>
                 </Frame>
                 <Button 
-                        Text="Save Changes" 
+                        Text="Zapisz zmiany" 
                         Command="{Binding SaveChangesCommand}" 
                         BackgroundColor="#FF8F00" 
                         CornerRadius="35"

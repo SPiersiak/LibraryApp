@@ -10,7 +10,7 @@
         <ScrollView>
             <StackLayout Spacing="3" Padding="15" VerticalOptions="Center"
             BackgroundColor="#616161">
-                <Label Text="Book Name" Margin="55,0"
+                <Label Text="Tytuł" Margin="55,0"
                 TextColor="White"
                 FontSize="Subtitle"/>
                 <Frame Margin="20,0,20,0" CornerRadius="130" BackgroundColor="#FF8F00">
@@ -19,7 +19,7 @@
                     HeightRequest="39"
                     FontSize="Body" />
                 </Frame>
-                <Label Text="Description"  Margin="55,0"
+                <Label Text="Opis"  Margin="55,0"
                 TextColor="White"
                 FontSize="Subtitle" />
                 <Frame Margin="20,0,20,0" CornerRadius="130" BackgroundColor="#FF8F00">
@@ -28,7 +28,7 @@
                     HeightRequest="39"
                     FontSize="Body" />
                 </Frame>
-                <Label Text="ISBN number"  Margin="55,0"
+                <Label Text="Numer ISBN"  Margin="55,0"
                 TextColor="White"
                 FontSize="Subtitle" />
                     <Frame Margin="20,0,20,0" CornerRadius="130" BackgroundColor="#FF8F00">
@@ -37,7 +37,7 @@
                     HeightRequest="39"
                     FontSize="Body" />
                 </Frame>
-                <Label Text="Release Date"  Margin="55,0"
+                <Label Text="Data Wydania"  Margin="55,0"
                 TextColor="White"
                 FontSize="Subtitle" />
                         <Frame Margin="20,0,20,0" CornerRadius="130" BackgroundColor="#FF8F00">
@@ -46,7 +46,7 @@
                     HeightRequest="39"
                     FontSize="Body" />
                 </Frame>
-                <Label Text="Book Language"  Margin="55,0"
+                <Label Text="Język książki"  Margin="55,0"
                 TextColor="White"
                 FontSize="Subtitle" />
                             <Frame Margin="20,0,20,0" CornerRadius="130" BackgroundColor="#FF8F00">
@@ -55,7 +55,7 @@
                     HeightRequest="39"
                     FontSize="Body" />
                 </Frame>
-                <Label Text="Author"  Margin="55,0"
+                <Label Text="Autor"  Margin="55,0"
                 TextColor="White"
                 FontSize="Subtitle" />
                                 <Frame Margin="20,0,20,0" CornerRadius="130" BackgroundColor="#FF8F00">
@@ -64,7 +64,7 @@
                     HeightRequest="39"
                     FontSize="Body" />
                 </Frame>
-                <Label Text="Publisher"  Margin="55,0"
+                <Label Text="Wydawnictwo"  Margin="55,0"
                 TextColor="White"
                 FontSize="Subtitle" />
                                     <Frame Margin="20,0,20,0" CornerRadius="130" BackgroundColor="#FF8F00">
@@ -73,7 +73,7 @@
                     HeightRequest="39"
                     FontSize="Body"/>
                 </Frame>
-                <Label Text="Category"  Margin="55,0"
+                <Label Text="Kategoria"  Margin="55,0"
                 TextColor="White"
                 FontSize="Subtitle" />
                                         <Frame Margin="20,0,20,0" CornerRadius="130" BackgroundColor="#FF8F00">
@@ -83,7 +83,7 @@
                     FontSize="Body" />
                 </Frame>
                 <Label 
-                        Text="Book Photo"
+                        Text="Zdjęcie Książki"
                         HorizontalOptions="Center"
                      Margin="55,0"
                 TextColor="White"
@@ -91,7 +91,7 @@
                 <Image Source="{Binding ImageSource}"
                            Margin="20,10,20,10"/>
                 <Button 
-                        Text="TakePicture" 
+                        Text="Zrób Zdjęcie" 
                         Command="{Binding TakePicture}"
                         VerticalOptions="Center"
                     BackgroundColor="#FF8F00" 
@@ -99,10 +99,10 @@
                         FontSize="Subtitle">
                 </Button>
                 <StackLayout Orientation="Horizontal" BackgroundColor="#616161">
-                    <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand" BackgroundColor="#FF8F00" 
+                    <Button Text="Anuluj" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand" BackgroundColor="#FF8F00" 
                         TextColor="white" 
                         FontSize="Subtitle"></Button>
-                    <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand" BackgroundColor="#FF8F00" 
+                    <Button Text="Zapisz" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand" BackgroundColor="#FF8F00" 
                         TextColor="white" 
                         FontSize="Subtitle"></Button>
                 </StackLayout>
