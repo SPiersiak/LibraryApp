@@ -21,24 +21,44 @@
       https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/data-binding/compiled-bindings
     -->
     <RefreshView x:DataType="local:ItemsViewModel" Command="{Binding LoadBooksCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
-        <StackLayout>
-            <SearchBar x:Name="Search" Placeholder="Search..." TextChanged="Search_TextChanged"></SearchBar>
+        <StackLayout BackgroundColor="#616161">
+            <SearchBar x:Name="Search" Placeholder="Search..." TextChanged="Search_TextChanged" BackgroundColor="#616161" TextColor="White" PlaceholderColor="White"></SearchBar>
             <CollectionView x:Name="ItemsListView"
                     ItemsSource="{Binding Books}"
                     SelectionMode="None">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout Padding="10" x:DataType="model:Book">
-
-                            <Label Text="{Binding BookName}" 
-                                LineBreakMode="NoWrap" 
-                                Style="{DynamicResource ListItemTextStyle}" 
-                                FontSize="16" />
-                            <Label Text="{Binding Description}" 
-                                LineBreakMode="NoWrap"
-                                Style="{DynamicResource ListItemDetailTextStyle}"
-                                FontSize="13" />
-                            <StackLayout Grid.Column="1" HorizontalOptions="Center"  BackgroundColor="#FF8F00">
+                        <StackLayout Padding="10" x:DataType="model:Book" Orientation="Horizontal" 
+                                 BackgroundColor="#616161" 
+                                 VerticalOptions="FillAndExpand">
+                            <Frame
+                            BackgroundColor="#FF8F00"
+                            BorderColor="White"
+                            Margin="15,5,15,5">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="2*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="4*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout Orientation="Vertical" Grid.Column="0" Grid.Row="0">
+                                        <Label Text="{Binding BookName}" 
+                                            LineBreakMode="NoWrap" 
+                                            Style="{DynamicResource ListItemTextStyle}" 
+                                            FontSize="13" 
+                                            VerticalOptions="Center"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical" Grid.Column="0" Grid.Row="1">
+                                            <Label Text="{Binding Description}" 
+                                            LineBreakMode="NoWrap"
+                                            Style="{DynamicResource ListItemDetailTextStyle}"
+                                            FontSize="13"
+                                               VerticalOptions="Center"/>
+                                    </StackLayout>
+                                    <StackLayout Grid.Column="2" Grid.RowSpan="2" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="#FF8F00">
                                 <Frame CornerRadius="5" IsClippedToBounds="True" Padding="0">
                                     <Image Source="{Binding Image, Converter={StaticResource converter}}" 
                                            HeightRequest="50" 
@@ -46,6 +66,8 @@
                                             Aspect="AspectFill"/>
                                 </Frame>
                             </StackLayout>
+                                </Grid>
+                            </Frame>
                             <StackLayout.GestureRecognizers>
                                 <TapGestureRecognizer 
                                     NumberOfTapsRequired="1"

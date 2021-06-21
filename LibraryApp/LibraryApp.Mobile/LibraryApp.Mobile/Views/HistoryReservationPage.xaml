@@ -5,25 +5,49 @@
              xmlns:local="clr-namespace:LibraryApp.Mobile.ViewModels"
              xmlns:model="clr-namespace:LibraryApp.Mobile.ViewModels.DTO">
     <RefreshView x:DataType="local:HistoryReservationViewModel" Command="{Binding LoadReservationCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
-        <StackLayout>
+        <StackLayout BackgroundColor="#616161">
             <CollectionView x:Name="ItemsListView"
                     ItemsSource="{Binding Reservations}"
                     SelectionMode="None">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout Padding="10" x:DataType="model:ReservationBookDto">
-                            <Label Text="{Binding ReservationStart}" 
+                        <StackLayout Padding="10" x:DataType="model:ReservationBookDto" BackgroundColor="#616161"
+                                     Orientation="Horizontal"
+                                     VerticalOptions="FillAndExpand">
+                            <Frame
+                            BackgroundColor="#FF8F00"
+                            BorderColor="White"
+                            Margin="15,5,15,5"
+                                HorizontalOptions="FillAndExpand">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="2*"/>
+                                        <RowDefinition Height="2*"/>
+                                        <RowDefinition Height="2*"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Text="{Binding ReservationStart}" 
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
-                                FontSize="16" />
+                                FontSize="13" 
+                                           Grid.Row="0"
+                                            VerticalOptions="Center" 
+                                           TextColor="White"/>
                             <Label Text="{Binding ReservationEnd}" 
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
-                                FontSize="16" />
+                                FontSize="13" 
+                                   Grid.Row="1"
+                                            VerticalOptions="Center"
+                                   TextColor="White"/>
                             <Label Text="{Binding BookName}" 
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
-                                FontSize="16" />
+                                FontSize="13" 
+                                   Grid.Row="2"
+                                  VerticalOptions="Center"
+                                   TextColor="White"/>
+                                </Grid>
+                            </Frame>
                         </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

@@ -37,9 +37,9 @@ namespace LibraryApp.Mobile.ViewModels
                     var res = new ReservationBookDto()
                     {
                         ReservationId = item.ReservationId,
-                        ReservationStart = item.ReservationStart,
-                        ReservationEnd = item.ReservationEnd,
-                        BookName = book.BookName
+                        ReservationStart = "Start rezerwacji: " + item.ReservationStart.ToString("yyyy-MM-dd HH:mm"),
+                        ReservationEnd = "Koniec Rezerwacji: " + item.ReservationEnd.ToString("yyyy-MM-dd HH:mm"),
+                        BookName = "Tytuł: " + book.BookName
                     };
                     Reservations.Add(res);
                 }
