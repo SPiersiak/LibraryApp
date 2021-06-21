@@ -1,5 +1,6 @@
 ﻿using LibraryApp.Mobile.Models;
 using LibraryApp.Mobile.Services.Categories;
+using LibraryApp.Mobile.Views;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -54,6 +55,7 @@ namespace LibraryApp.Mobile.ViewModels
             await Application.Current.MainPage.DisplayAlert("Save", "New Category was added", "OK");
             ClearCategory();
             await Task.Delay(400);
+            await Shell.Current.GoToAsync($"//{nameof(AddingDataPage)}");
             // This will pop the current page off the navigation stack
             //await Shell.Current.GoToAsync("..");
         }

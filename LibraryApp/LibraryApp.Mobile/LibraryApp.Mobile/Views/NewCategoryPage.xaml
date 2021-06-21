@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LibraryApp.Mobile.Views.NewCategoryPage"
              xmlns:vm="clr-namespace:LibraryApp.Mobile.ViewModels"
-             Title="Add new category">
+             Title="Dodaj nowa kategorie">
     
     <ContentPage.BindingContext>
         <vm:NewCategoryViewModel />
@@ -13,7 +13,7 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView BackgroundColor="#616161">
-            <StackLayout Background="White" Spacing="3" Padding="15" BackgroundColor="#616161">
+            <StackLayout Spacing="3" Padding="15" BackgroundColor="#616161">
                 <Label Text="Nazwa Kategori" Margin="55,0"
                 TextColor="White"
                 FontSize="Subtitle"/>

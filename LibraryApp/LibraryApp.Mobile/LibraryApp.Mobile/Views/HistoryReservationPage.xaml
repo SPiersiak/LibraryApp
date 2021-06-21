@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LibraryApp.Mobile.Views.HistoryReservationPage"
              xmlns:local="clr-namespace:LibraryApp.Mobile.ViewModels"
-             xmlns:model="clr-namespace:LibraryApp.Mobile.ViewModels.DTO">
+             xmlns:model="clr-namespace:LibraryApp.Mobile.ViewModels.DTO"
+             Title="Nieaktywne rezerwacje">
     <RefreshView x:DataType="local:HistoryReservationViewModel" Command="{Binding LoadReservationCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
         <StackLayout BackgroundColor="#616161">
             <CollectionView x:Name="ItemsListView"

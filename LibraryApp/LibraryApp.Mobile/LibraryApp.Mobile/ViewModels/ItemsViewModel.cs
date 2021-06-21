@@ -19,10 +19,9 @@ namespace LibraryApp.Mobile.ViewModels
         public Command LoadBooksCommand { get; }
         public Command AddBookCommand { get; }
         public Command<Book> BookTapped { get; }
-
         public ItemsViewModel()
         {
-            Title = "Browse";
+            Title = "Lista Książek";
             Books = new ObservableCollection<Book>();
             LoadBooksCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
@@ -53,7 +52,6 @@ namespace LibraryApp.Mobile.ViewModels
                 IsBusy = false;
             }
         }
-
         public void OnAppearing()
         {
             IsBusy = true;

@@ -3,9 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LibraryApp.Mobile.Views.UserReservationPage"
              xmlns:local="clr-namespace:LibraryApp.Mobile.ViewModels"
-             xmlns:model="clr-namespace:LibraryApp.Mobile.ViewModels.DTO">
+             xmlns:model="clr-namespace:LibraryApp.Mobile.ViewModels.DTO"
+             Title="Aktywne rezerwacje">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="History" Command="{Binding HistoryReservationCommand}" />
+        <ToolbarItem Text="Historia" Command="{Binding HistoryReservationCommand}" />
     </ContentPage.ToolbarItems>
     <RefreshView x:DataType="local:UserReservationViewModel" Command="{Binding LoadReservationCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
         <StackLayout BackgroundColor="#616161">

@@ -1,5 +1,6 @@
 ﻿using LibraryApp.Mobile.Models;
 using LibraryApp.Mobile.Services.Publishers;
+using LibraryApp.Mobile.Views;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -55,7 +56,7 @@ namespace LibraryApp.Mobile.ViewModels
             ClearPublisher();
             await Task.Delay(400);
             // This will pop the current page off the navigation stack
-            await Shell.Current.GoToAsync("..");
+            await Shell.Current.GoToAsync($"//{nameof(AddingDataPage)}");
         }
         private async void Cancel()
         {

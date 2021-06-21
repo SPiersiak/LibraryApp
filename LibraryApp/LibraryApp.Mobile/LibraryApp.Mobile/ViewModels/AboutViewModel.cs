@@ -14,7 +14,7 @@ namespace LibraryApp.Mobile.ViewModels
         private string role;
         public AboutViewModel()
         {
-            Title = "About";
+            Title = "System Biblioteczny";
             
             LogoutCommand = new Command(Logout);
             MessagingCenter.Subscribe<LoginViewModel, string>(this, "name",  (sender, arg) =>

@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LibraryApp.Mobile.Views.NewAuthorPage"
              xmlns:vm="clr-namespace:LibraryApp.Mobile.ViewModels"
-             Title="Add New Author">
+             Title="Dodaj nowego Autora">
 
     <ContentPage.BindingContext>
         <vm:NewAuthorViewModel/>

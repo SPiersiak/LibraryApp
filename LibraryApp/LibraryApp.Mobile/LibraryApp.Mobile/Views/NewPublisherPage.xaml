@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LibraryApp.Mobile.Views.NewPublisherPage"
              xmlns:vm="clr-namespace:LibraryApp.Mobile.ViewModels"
-             Title="Add new publisher">
+             Title="Dodaj nowego wydawce">
 
     <ContentPage.BindingContext>
         <vm:NewPublisherViewModel/>

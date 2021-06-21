@@ -9,7 +9,7 @@
              xmlns:p="clr-namespace:LibraryApp.Mobile">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Command="{Binding AddBookCommand}" />
+        <ToolbarItem Text="Dodaj" Command="{Binding AddBookCommand}"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Resources>
         <ResourceDictionary>
