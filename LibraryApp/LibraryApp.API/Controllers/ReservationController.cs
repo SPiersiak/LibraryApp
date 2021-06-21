@@ -30,24 +30,24 @@ namespace LibraryApp.API.Controllers
             else
                 return Ok();
         }
-        [HttpPost("{reservationId}")]
+        [HttpPost("EndReservation/{reservationId}")]
         public IActionResult EndReservation(long reservationId)
         {
             var result = _reservationRepository.EndReservation(reservationId);
             if (result == false)
                 return BadRequest();
             else
-                return Ok();
+                return Ok("Success");
         }
 
-        [HttpPost]
+        [HttpPost("ExtendReservation/{reservationId}")]
         public IActionResult ExtendReservation(long reservationId)
         {
             var result = _reservationRepository.ExtendReservation(reservationId);
             if (result == false)
                 return BadRequest();
             else
-                return Ok();
+                return Ok("Success");
         }
         [HttpGet("ActiveReservation/{userId}")]
         public ActionResult<IEnumerable<Reservation>> GetActiveReservationForUser(long userId)

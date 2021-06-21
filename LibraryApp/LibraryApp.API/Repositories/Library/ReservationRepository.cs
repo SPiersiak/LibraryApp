@@ -37,6 +37,7 @@ namespace LibraryApp.API.Repositories.Library
             else
             {
                 findReservation.IsActive = false;
+                findReservation.ReservationEnd = DateTime.Now;
                 _libraryDbContext.Reservations.Update(findReservation);
                 _libraryDbContext.SaveChanges();
                 return true;

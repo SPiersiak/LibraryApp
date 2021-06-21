@@ -19,6 +19,20 @@ namespace LibraryApp.Mobile.Services.Reservations
             return true;
         }
 
+        public async Task<bool> BookProlongate(long reservationId)
+        {
+            var uri = $"{Settings.Server_Endpoint}Reservation/ExtendReservation/" + reservationId;
+            var result = await _requestService.PostAsync<long,string>(uri, reservationId);
+            return true;
+        }
+
+        public async Task<bool> EndReservation(long reservationId)
+        {
+            var uri = $"{Settings.Server_Endpoint}Reservation/EndReservation/" + reservationId;
+            var result = await _requestService.PostAsync<long, string>(uri, reservationId);
+            return true;
+        }
+
         public async Task<Reservation> GetActiveReservationForBook(long bookId)
         {
             var uri = $"{Settings.Server_Endpoint}Reservation/BookReservation/" + bookId;

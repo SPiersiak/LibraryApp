@@ -13,6 +13,7 @@ namespace LibraryApp.Mobile.Services.Reservations
         Task<IEnumerable<Reservation>> GetActiveReservationForUser(long userId);
         Task<IEnumerable<Reservation>> GetInActiveReservationForUser(long userId);
         Task<Reservation> GetActiveReservationForBook(long bookId);
-
+        Task<bool> BookProlongate(long reservationId);
+        Task<bool> EndReservation(long reservationId);
     }
 }
